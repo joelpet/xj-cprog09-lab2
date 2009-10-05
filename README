@@ -1,0 +1,36 @@
+De fyra alternativen att ärva:
+
+  Date
+   |
+Gregorian
+   |
+ Julian
+
+
+  Date
+   |
+ Julian
+   |
+Gregorian
+
+De båda ovan minskar risken för kodduplicering iom att man bara behöver 
+overloada de metoder som är annorlunda mellan de två. Dock är det en mycket 
+konstig layout då varken Julian isa Gregorian eller vice versa.
+
+
+        Date
+       /    \
+Gregorian   Julian
+
+Kan leda till kodduplicering om Gregorian och Julian är väldigt lika
+
+
+    
+        Date
+         |
+       Middle
+       /    \
+Gregorian   Julian
+
+Slipper kodduplicering samt man har fortfarande möjligheten att abstrahera dem
+på ett mer korrekt sätt.
