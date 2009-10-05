@@ -9,15 +9,18 @@ namespace lab2 {
     Date::Date(int year, int month, int day) : t_year(year), t_month(month), t_day(day) {
         std::cout << "bajskorv" << std::endl;
     }
+
+    /**
+     * Copy constructor for a Date.
+     *
+     * @param datum the date to copy
+     */
     Date::Date(const Date & datum) {
-        // if (datum == this)
-        // return;
         t_year = datum.t_year;
         t_month = datum.t_month;
         t_day = datum.t_day;
-        std::cout << "kopiera" << std::endl;
+        std::cerr << "Date::Date(const Date & datum)" << std::endl;
     }
-
 
     int Date::year() const {
         return t_year;
