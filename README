@@ -34,3 +34,14 @@ Gregorian   Julian
 
 Slipper kodduplicering samt man har fortfarande möjligheten att abstrahera dem
 på ett mer korrekt sätt.
+
+---
+
+Tilldelningsoperatorn kan vara trevlig att ha om man har ett datum som man vill
+sätta till ett annat datum. Detta kan användas som alternativ till copy-
+konstruktorn. Kanske inte så övertygande argument för, men kan inte hitta något
+direkt argument emot, annat än att det tar några sekunder att skriva koden.
+
+---
+
+
