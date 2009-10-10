@@ -128,6 +128,28 @@ namespace lab2 {
         return *this;
     }
 
+    /**
+     * Increments this date by the specified number of days.
+     *
+     * @param n The number of days to add
+     * @return A reference to this date
+     */
+    Date & Date::operator+=(int n) {
+        // TODO Add operator+= code here
+        return *this;
+    }
+
+    /**
+     * Decreases this date by the specified number of days.
+     *
+     * @param n The number of days to subtract
+     * @return A reference to this date
+     */
+    Date & Date::operator-=(int n) {
+        // TODO Add operator-= code here
+        return *this;
+    }
+
     /** 
      * Increments this date by one day. Makes sure the days wrap and
      * month in that case increase, which in turn will do the same
