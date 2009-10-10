@@ -37,8 +37,8 @@ namespace lab2 {
             Date & operator=(const Date &);
             Date & operator++();
             Date & operator--();
-            void operator+=(int);
-            void operator-=(int);
+            Date & operator+=(int);
+            Date & operator-=(int);
 
             virtual int mod_julian_day() const = 0; // vad är detta?
 
