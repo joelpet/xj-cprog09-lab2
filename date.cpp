@@ -8,12 +8,19 @@ namespace lab2 {
     static const int FIRST_DAY = 1;
 
     /**
-     * Constructs a new empty date, with year, month and day set to 
-     * zero.
+     * Constructs a new date through kattistime.
      */
-    // TODO: should use todays date, through kattistime
-    Date::Date() : t_year(0), t_month(FIRST_MONTH), t_day(FIRST_DAY) {
+    Date::Date() {
+        time_t mytime;
+        k_time(&mytime);
+
+        // Get local date
+        struct tm * t = gmtime(&mytime);
+        t_year  = t->tm_year + 1900;
+        t_month = t->tm_mon + 1; // 1-indexed 
+        t_day   = t->tm_mday; // 1-indexed
     }
+
     /**
      * Constructs a new date with the specified date data.
      *
@@ -72,66 +79,6 @@ namespace lab2 {
     int Date::add_year(int n = 1) {
         return t_year += n;
     }
-
-    /**
-     * Adds the specified number of months and returns the new month.
-     * Then returns the resulting month, which may be handy to have.
-     *
-     * @param n Number of months to add
-     * @return The new month
-     */
-    // XXX: what happens if day==30 and month lands on februrary?
-    // XXX: above scenario is described in lab-pm
-    // TODO: this code should probably be moved to each child class
-    /*
-    int Date::add_month(int n = 1) {
-        if (n < months_per_year()) {
-            t_month++;
-            // TODO: must do more here
-        }
-
-        int n_year_wraps = n / months_per_year();
-        int month_remainder = n - (n_year_wraps * months_per_year());
-
-        add_year(n_year_wraps);
-        return add_month(month_remainder); // recurse
-    }
-    */
-
-    /**
-     * Decreases the specified number of years and returns resulting
-     * year.
-     *
-     * @param n The number of years to decrease by
-     * @return The resulting year
-     */
-    // XXX: are we allowed to have negative years?
-    /*
-    int Date::decrease_year(int n = 1) {
-        return --t_year;
-    }
-    */
-
-    /**
-     * Decreases the the month by the specified number.
-     *
-     * @param n The number of month to decrease by
-     * @return The resulting month
-     */
-    // TODO: take care of leap years and different # days / month
-    /*
-    int Date::decrease_month(int n = 1) {
-        if (n <= t_month) {
-            return t_month - n;
-        }
-
-        int n_year_wraps = n / months_per_year();
-        int month_remainder = n - (n_year_wraps * months_per_year());
-
-        decrease_year(n_year_wraps);
-        return decrease_month(month_remainder); // recurse
-    }
-    */
 
     bool Date::operator==(const Date & d) const {
         return d.mod_julian_day() == this->mod_julian_day();
@@ -227,28 +174,28 @@ namespace lab2 {
 int main() {
     using namespace lab2;
     std::cout << "start" << std::endl;
-    
+
     /*
-    Date a(1998, 9, 13);
-    Date b(1998, 9, 13);
-    Date c(2000, 10, 5);
-    Date d(2000, 9, 13);
-    Date e(1998, 9, 1);
-    */
+       Date a(1998, 9, 13);
+       Date b(1998, 9, 13);
+       Date c(2000, 10, 5);
+       Date d(2000, 9, 13);
+       Date e(1998, 9, 1);
+       */
 
     // Test compare operators
     /*
-    assert(a == b);
-    assert(a != c);
-    assert(a != d);
-    assert(a != e);
-    assert(a < c);
-    assert(c > a);
-    assert(a <= b);
-    assert(b >= a);
-    assert(c - a > 0);
-    assert(e - d < 0); 
-    */
+       assert(a == b);
+       assert(a != c);
+       assert(a != d);
+       assert(a != e);
+       assert(a < c);
+       assert(c > a);
+       assert(a <= b);
+       assert(b >= a);
+       assert(c - a > 0);
+       assert(e - d < 0); 
+       */
 
     std::cout << "stop" << std::endl;
     return 0;
