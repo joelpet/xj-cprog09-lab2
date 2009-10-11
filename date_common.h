@@ -23,6 +23,7 @@ namespace lab2 {
      */
     class DateCommon : public Date {
         public:
+            DateCommon(int, int, int);
             virtual int add_month(int);
             virtual int week_day() const;
             virtual int days_per_week() const;

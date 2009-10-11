@@ -88,16 +88,16 @@ namespace lab2 {
         return !(*this == d);
     }
     bool Date::operator<=(const Date & d) const {
-        return d - *this <= 0;
+        return *this - d <= 0;
     }
     bool Date::operator<(const Date & d) const {
-        return d - *this < 0;
+        return *this - d  < 0;
     }
     bool Date::operator>(const Date & d) const {
-        return d - *this > 0;
+        return *this - d > 0;
     }
     bool Date::operator>=(const Date & d) const {
-        return d - *this >= 0;
+        return  *this - d >= 0;
     }
     /**
      * Returns the number of days between this and the specified date.
@@ -194,3 +194,6 @@ namespace lab2 {
     }
 
 }
+    // int main() {
+// 
+    // }

@@ -1,19 +1,37 @@
 #include "gregorian.h"
 namespace lab2 {
 
+    Gregorian::Gregorian(int y, int m, int d) : DateCommon(y,m,d) {
+    }
+    // Gregorian::Gregorian(int year, int month, int day) : t_year(year), t_month(month), t_day(day) {
+    // Gregorian::Gregorian(int year, int month, int day) {
+        // this->t_year = year;
+        // this->t_month = month;
+        // this->t_day = day;
+    // }
+
     /** 
      * Increases the month with n
      */
     int Gregorian::add_month(signed int n) {
         if (n > 0) {
-            t_year += (int)(n + t_month/12);
-            t_month += (n + t_month)%12;
+            t_year += (int)((n + t_month -1)/12);
+            t_month = (n + t_month-1)%12+1;
             return t_month;
         }
         else {
+            // TODO broken
             // Might be broken, didnt think it through thurrowly (spelling?)
-            t_year -= (int)(n - t_month/12);
-            t_month -= (n - t_month)%12;
+            n *= -1;
+            if (t_month - n > 0) {
+                t_month -= n;
+            }
+            else {
+                n -= t_month;
+                t_year--;
+                t_year -= (int)(n/12);
+                t_month = 12-(n-1)%12;
+            }
             return t_month;
         }
     }
@@ -25,8 +43,15 @@ namespace lab2 {
      * @return The new day
      */
     int Gregorian::add_day(int n) {
+        if (n > 0) {
         for (int i = 0; i < n; i++) {
             ++(*this);
+        }
+        }
+        else {
+            for (; n < 0; n++) {
+                --(*this);
+            }
         }
 
         return t_day;
