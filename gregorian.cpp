@@ -26,7 +26,7 @@ namespace lab2 {
      */
     int Gregorian::add_day(int n) {
         for (int i = 0; i < n; i++) {
-            (*this)++;
+            ++(*this);
         }
 
         return t_day;
