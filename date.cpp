@@ -194,38 +194,3 @@ namespace lab2 {
     }
 
 }
-
-int main() {
-    using namespace lab2;
-    std::cout << "start" << std::endl;
-
-       // Date a(1998, 9, 13);
-       // Date b(1998, 9, 13);
-       // Date c(2000, 10, 5);
-       // Date d(2000, 9, 13);
-       // Date e(1998, 9, 1);
-
-    // Test compare operators
-    /*
-       assert(a == b);
-       assert(a != c);
-       assert(a != d);
-       assert(a != e);
-       assert(a < c);
-       assert(c > a);
-       assert(a <= b);
-       assert(b >= a);
-       assert(c - a > 0);
-       assert(e - d < 0); 
-
-        e += 12;
-        assert(e == a);
-        c -= 22;
-        assert(c == d); // Osäker på att jag räknat rätt, dubbelkolla om det blir fel här
-
-        
-       */
-
-    std::cout << "stop" << std::endl;
-    return 0;
-}
