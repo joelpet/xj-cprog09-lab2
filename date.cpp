@@ -7,7 +7,6 @@ namespace lab2 {
     static const int FIRST_MONTH = 1;
     static const int FIRST_DAY = 1;
 
-    const int daysPerMonth[13] = {0,31,28,31,30,31,30,31, 31, 30, 31, 30, 31};
 
     /**
      * Constructs a new date through kattistime.
@@ -137,13 +136,7 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator+=(int n) {
-        while (n > daysPerMonth[t_month]) {
-            n -= daysPerMonth[t_month];
-            add_month(1);
-        }
-        // n should be less than the number of days
-        // this month
-        t_day += n;
+        add_day(n);
         return *this;
     }
 
@@ -154,13 +147,7 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator-=(int n) {
-        while (n > daysPerMonth[t_month-1]) {
-            n -= daysPerMonth[t_month-1];
-            add_month(-1);
-        }
-        // n should be less than the number of days
-        // this month
-        t_day -= n;
+        add_day(-n);
         return *this;
     }
 
@@ -212,13 +199,11 @@ int main() {
     using namespace lab2;
     std::cout << "start" << std::endl;
 
-    /*
        Date a(1998, 9, 13);
        Date b(1998, 9, 13);
        Date c(2000, 10, 5);
        Date d(2000, 9, 13);
        Date e(1998, 9, 1);
-       */
 
     // Test compare operators
     /*
