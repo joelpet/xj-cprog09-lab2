@@ -55,6 +55,7 @@ int main() {
     assert(c == d); // Osäker på att jag räknat rätt, dubbelkolla om det blir fel här
 
 
+    std::cout << a << std::endl;
 
     std::cout << "stop" << std::endl;
     return 0;

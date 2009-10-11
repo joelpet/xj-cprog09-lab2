@@ -2,6 +2,7 @@
 #include "kattistime.h"
 #include <assert.h>
 #include <iostream>
+#include <sstream>
 
 namespace lab2 {
     static const int FIRST_MONTH = 1;
@@ -190,7 +191,17 @@ namespace lab2 {
      * @param d The date to print
      */
     std::ostream & operator<<(std::ostream & os, const Date & d) {
-        std::cout << d.year() << "-" << d.month() << "-" << d.day() << std::endl;
+        std::stringstream month(std::stringstream::in | std::stringstream::out);
+        month.width(2);
+        month.fill('0');
+        month << d.month();
+
+        std::stringstream day(std::stringstream::in | std::stringstream::out);
+        day.width(2);
+        day.fill('0');
+        day << d.day();
+        
+        std::cout << d.year() << "-" << month.str() << "-" << day.str() << std::endl;
     }
 
 }
