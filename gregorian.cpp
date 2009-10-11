@@ -1,9 +1,31 @@
 #include "gregorian.h"
 namespace lab2 {
 
-    const int daysPerMonth[13] = {0,31,28,31,30,31,30,31, 31, 30, 31, 30, 31};
-    const std::string nameOfDay[] = {"", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"};
-    const std::string nameOfMonth[] = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    const int daysPerMonth[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    const std::string nameOfDay[] = {"", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
+    const std::string nameOfMonth[] = {"", "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
+
+    /**
+     * Returns the current day of the week
+     */
+    int Gregorian::week_day()  const {
+        // http://en.wikipedia.org/wiki/Calculating_the_day_of_the_week
+        int months[]        = {0,0,3,3,6,1,4,6,2,5,0,3,5};
+        int leap_months[]   = {0,6,2,3,6,1,4,6,2,5,0,3,5};
+
+        int century = (int)(t_year/100); // two first digits of the year
+        int year = t_year - century*100; // two last digits of the year
+        int c = 2*(3 - (century % 4)); 
+        int y = (int)(year / 4);
+        int month;
+        if (leap_year()) {
+            month = leap_months[t_month];
+        }
+        else {
+            month = months[t_month];
+        }
+        return (c + year + y + months[t_month] + t_day)%7;
+    }
     
     
     /**
@@ -73,10 +95,17 @@ namespace lab2 {
     }
     
     /**
-     * TODO
+     * Adds the specified number of days to this date.
+     *
+     * @param n The number of days to add
+     * @return The new day
      */
     int Gregorian::add_day(int n) {
-        return 0;
+        for (int i = 0; i < n; i++) {
+            (*this)++;
+        }
+
+        return t_day;
     }
 
     /**
