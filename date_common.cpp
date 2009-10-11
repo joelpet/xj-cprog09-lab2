@@ -1,14 +1,12 @@
 #include "date_common.h"
 
 namespace lab2 {
-    const std::string nameOfDay[] = {"", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"};
-    const std::string nameOfMonth[] = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    const std::string nameOfDay[] = {"", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
+    const std::string nameOfMonth[] = {"", "january", "februrary", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
 
-    const int daysPerMonth[13] = {0,31,28,31,30,31,30,31, 31, 30, 31, 30, 31};
+    const int daysPerMonth[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     
-    DateCommon::DateCommon(int y, int m, int d) : Date(y,m,d) {
-
-    }
+    DateCommon::DateCommon(int y, int m, int d) : Date(y,m,d) {}
 
     /**
      * Adds a number of months to our current date
@@ -16,7 +14,7 @@ namespace lab2 {
      * @param n Add this number of months to the calendar
      */
     int DateCommon::add_month(signed int n) {
-        t_year += int(n/12);
+        t_year += int(n/months_per_year());
         n = n%12;
         t_month += n;
         return t_month;
