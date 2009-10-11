@@ -3,6 +3,7 @@
 namespace lab2 {
     class Date {
 
+        protected:
         int t_year;
         int t_month; // one indexed
         int t_day; // one indexed

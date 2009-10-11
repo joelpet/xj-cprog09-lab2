@@ -197,18 +197,6 @@ namespace lab2 {
     }
 
     /**
-     * TODO: Should be moved to some other class
-     * Adds a number of months to our current date
-     * 
-     * @param n Add this number of months to the calendar
-     */
-    // void Date::add_month(signed int n) {
-        // t_year += int(n/12);
-        // n = n%12;
-        // t_month += n;
-    // }
-
-    /**
      * Prints a string representation of this date to stdout.
      *
      * @param os An ostream reference
