@@ -2,8 +2,8 @@
 namespace lab2 {
 
     const int daysPerMonth[13] = {0,31,28,31,30,31,30,31, 31, 30, 31, 30, 31};
-    const std::string nameOfDay[] = {"", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"}
-    const std::string nameOfMonth[] = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}
+    const std::string nameOfDay[] = {"", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"};
+    const std::string nameOfMonth[] = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     /**
      * Returns the current day of the week
      */
@@ -102,7 +102,7 @@ namespace lab2 {
      * 
      * "    Every year that is exactly divisible by four is a leap year, except for years that are exactly divisible by 100; the centurial years that are exactly divisible by 400 are still leap years. For example, the year 1900 is not a leap year; the year 2000 is a leap year. "
      */
-    bool leap_year() {
+    bool Gregorian::leap_year() const {
         if (t_year % 400)
             return true;
         if (t_year % 100)

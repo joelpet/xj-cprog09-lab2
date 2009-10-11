@@ -8,6 +8,7 @@ namespace lab2 {
         int t_month; // one indexed
         int t_day; // one indexed
 
+
         public:
             // Constructors
             Date();
@@ -24,6 +25,7 @@ namespace lab2 {
             virtual std::string week_day_name() = 0;
             virtual std::string month_name() = 0;
 
+            virtual int add_day(int) = 0;
             virtual int add_year(int) = 0; 
             virtual int add_month(int) = 0;
 

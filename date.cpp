@@ -199,11 +199,11 @@ int main() {
     using namespace lab2;
     std::cout << "start" << std::endl;
 
-       Date a(1998, 9, 13);
-       Date b(1998, 9, 13);
-       Date c(2000, 10, 5);
-       Date d(2000, 9, 13);
-       Date e(1998, 9, 1);
+       // Date a(1998, 9, 13);
+       // Date b(1998, 9, 13);
+       // Date c(2000, 10, 5);
+       // Date d(2000, 9, 13);
+       // Date e(1998, 9, 1);
 
     // Test compare operators
     /*
