@@ -33,7 +33,6 @@ namespace lab2 {
      * @param day The day
      */
     Date::Date(int year, int month, int day) : t_year(year), t_month(month), t_day(day) {
-        std::cout << "bajskorv" << std::endl;
     }
 
     /**

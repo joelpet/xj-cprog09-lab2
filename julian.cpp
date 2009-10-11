@@ -16,7 +16,7 @@ namespace lab2 {
      * #Converting_between_Julian_calendar_date_and_Julian_Day_Number
      */
     int Julian::mod_julian_day() const { 
-        return 367 * year() − (7 * (year() + 5001 + (month() − 9)/7))/4 + (275 * month())/9 + day() + 1729777;
+        return 367*year()-(7*(year()+5001+(month()-9)/7))/4+(275*month())/9+day()+1729777;
     }
 
     /** 
@@ -28,3 +28,4 @@ namespace lab2 {
     }
 
 }
+

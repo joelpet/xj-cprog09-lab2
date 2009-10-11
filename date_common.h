@@ -1,3 +1,7 @@
+// header guard
+#ifndef DATE_COMMON_H
+#define DATE_COMMON_H
+
 #include "date.h"
 
 namespace lab2 {
@@ -43,3 +47,6 @@ namespace lab2 {
     };
 
 }
+
+#endif
+// end header guard

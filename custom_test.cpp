@@ -1,9 +1,11 @@
 #include "gregorian.h"
-#include <iostream>
+#include "julian.h"
 #include <assert.h>
+#include <iostream>
+
 int main() {
     using namespace lab2;
-    std::cout << "start" << std::endl;
+    std::cout << "start custom tests" << std::endl;
 
     Gregorian a(1998, 9, 13);
     Gregorian b(1998, 9, 13);
@@ -12,6 +14,14 @@ int main() {
     Gregorian e(1998, 9, 1);
     Gregorian f(1998, 8, 31);
     Gregorian g(1998, 8, 1);
+
+    Julian aj(1998, 9, 13);
+    Julian bj(1998, 9, 13);
+    Julian cj(2000, 10, 5);
+    Julian dj(2000, 9, 13);
+    Julian ej(1998, 9, 1);
+    Julian fj(1998, 8, 31);
+    Julian gj(1998, 8, 1);
 
     // Test compare operators
     assert(a == b);
@@ -25,7 +35,6 @@ int main() {
     assert(c > a);
     assert(a <= b);
     assert(b >= a);
-
 
 
     g.add_month(1);
@@ -54,9 +63,9 @@ int main() {
     c -= 22;
     assert(c == d); // Osäker på att jag räknat rätt, dubbelkolla om det blir fel här
 
-
     std::cout << a << std::endl;
 
-    std::cout << "stop" << std::endl;
+    std::cout << "end custom tests" << std::endl;
+
     return 0;
 }

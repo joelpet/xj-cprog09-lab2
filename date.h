@@ -1,12 +1,16 @@
+// header guard
+#ifndef DATE_H
+#define DATE_H
+
 #include <ostream>
 
 namespace lab2 {
     class Date {
 
         protected:
-        int t_year;
-        int t_month; // one indexed
-        int t_day; // one indexed
+            int t_year;
+            int t_month; // one indexed
+            int t_day; // one indexed
 
 
         public:
@@ -48,3 +52,6 @@ namespace lab2 {
 
     std::ostream & operator<<(std::ostream & os, const Date &);
 }
+
+#endif
+// end header gard
