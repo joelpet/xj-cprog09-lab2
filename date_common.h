@@ -1,4 +1,5 @@
 #include "date.h"
+
 namespace lab2 {
 
     /* A note on 'public' before 'Date' below:
@@ -20,18 +21,23 @@ namespace lab2 {
      * code that may be common to two or more implementing classes 
      * but does not fit in base class Date do not have to be
      * duplicated.
+     *
+     * We assume for the sake of simplicity that only Gregorian and
+     * Julian dates will inherit from DateCommon, which is why things
+     * like days_per_week() are placed inside here.
      */
     class DateCommon : public Date {
         public:
             DateCommon(int, int, int);
+            virtual int add_day(int);
             virtual int add_month(int);
+            virtual int add_year(int); 
             virtual int week_day() const;
             virtual int days_per_week() const;
             virtual int days_this_month() const;
             virtual int months_per_year() const;
             virtual std::string week_day_name() const;
             virtual std::string month_name() const;
-            virtual int add_year(int); 
         protected:
             virtual bool leap_year() const = 0;
     };

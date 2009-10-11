@@ -1,3 +1,5 @@
+//#define NDEBUG
+
 #include "date.h"
 #include "kattistime.h"
 #include <assert.h>
@@ -99,6 +101,7 @@ namespace lab2 {
     bool Date::operator>=(const Date & d) const {
         return  *this - d >= 0;
     }
+
     /**
      * Returns the number of days between this and the specified date.
      * The integer is positive if the specified date is earlier than 
@@ -125,6 +128,8 @@ namespace lab2 {
         t_day = d.day();
         t_month = d.month();
         t_year = d.year();
+
+        assert(*this - d == 0);
 
         return *this;
     }

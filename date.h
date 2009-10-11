@@ -43,24 +43,8 @@ namespace lab2 {
             Date & operator+=(int);
             Date & operator-=(int);
 
-            virtual int mod_julian_day() const = 0; // vad är detta?
-
-
-            /*
-             * Operatorerna ska vara virtuella där så behövs. Låt de funktinoer som
-             * inte kan definieras i basklassen vara strikt virtuella (pure
-             * virtual).
-             */
-
-            /*
-             * Vilka funktioner är const? Vilka argument/returtyper är const? Vid
-             * redovisningen ska du övertyga handledaren att du kan använda const
-             * och virtual.
-             */
-
-
+            virtual int mod_julian_day() const = 0;
     };
 
     std::ostream & operator<<(std::ostream & os, const Date &);
-    // år-månad-dag
 }

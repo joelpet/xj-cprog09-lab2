@@ -2,12 +2,12 @@
 
 namespace lab2 {
 
-    class Gregorian : public DateCommon {
+    class Julian : public DateCommon {
 
         bool leap_year() const;
 
         public:
-            Gregorian(int, int, int);
+            Julian(int, int, int);
             virtual int mod_julian_day() const; 
     };
 
