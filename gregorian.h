@@ -1,3 +1,4 @@
+#include "date_common.h"
 namespace lab2 {
 
     class Gregorian : public DateCommon {
@@ -16,7 +17,7 @@ namespace lab2 {
             // virtual int mod_julian_day() const = 0; // vad är detta?
 
             // Operator overloads don't get inherited?
-    }
+    };
 
 
 }
