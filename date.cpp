@@ -161,7 +161,7 @@ namespace lab2 {
     Date & Date::operator++() {
         if (++t_day > days_per_week()) {
             add_month(1);
-            t_day = 1;
+            t_day = FIRST_DAY;
         }
 
         return *this;
