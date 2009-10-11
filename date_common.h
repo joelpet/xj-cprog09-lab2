@@ -1,3 +1,4 @@
+#include "date.h"
 namespace lab2 {
 
     /* A note on 'public' before 'Date' below:
@@ -22,6 +23,6 @@ namespace lab2 {
      */
     class DateCommon : public Date {
     
-    }
+    };
 
 }
