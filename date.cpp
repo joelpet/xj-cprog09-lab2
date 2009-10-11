@@ -7,6 +7,8 @@ namespace lab2 {
     static const int FIRST_MONTH = 1;
     static const int FIRST_DAY = 1;
 
+    const int daysPerMonth[13] = {0,31,28,31,30,31,30,31, 31, 30, 31, 30, 31};
+
     /**
      * Constructs a new date through kattistime.
      */
@@ -135,7 +137,13 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator+=(int n) {
-        // TODO Add operator+= code here
+        while (n > DaysPerMonth[t_month]) {
+            n -= DaysPerMonth[t_month];
+            add_month(1);
+        }
+        // n should be less than the number of days
+        // this month
+        t_days += n;
         return *this;
     }
 
@@ -146,7 +154,13 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator-=(int n) {
-        // TODO Add operator-= code here
+        while (n > DaysPerMonth[t_month-1]) {
+            n -= DaysPerMonth[t_month-1];
+            add_month(-1);
+        }
+        // n should be less than the number of days
+        // this month
+        t_days -= n;
         return *this;
     }
 
@@ -183,6 +197,17 @@ namespace lab2 {
     }
 
     /**
+     * Adds a number of months to our current date
+     * 
+     * @param n Add this number of months to the calendar
+     */
+    void add_month(signed int n) {
+        t_year += int(n/12);
+        n = n%12;
+        t_month += n;
+    }
+
+    /**
      * Prints a string representation of this date to stdout.
      *
      * @param os An ostream reference
@@ -191,6 +216,7 @@ namespace lab2 {
     std::ostream & operator<<(std::ostream & os, const Date & d) {
         std::cout << d.year() << "-" << d.month() << "-" << d.day() << std::endl;
     }
+
 }
 
 int main() {
@@ -217,6 +243,13 @@ int main() {
        assert(b >= a);
        assert(c - a > 0);
        assert(e - d < 0); 
+
+        e += 12;
+        assert(e == a);
+        c -= 22;
+        assert(c == d); // Osäker på att jag räknat rätt, dubbelkolla om det blir fel här
+
+        
        */
 
     std::cout << "stop" << std::endl;
