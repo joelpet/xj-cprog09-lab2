@@ -137,13 +137,13 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator+=(int n) {
-        while (n > DaysPerMonth[t_month]) {
-            n -= DaysPerMonth[t_month];
+        while (n > daysPerMonth[t_month]) {
+            n -= daysPerMonth[t_month];
             add_month(1);
         }
         // n should be less than the number of days
         // this month
-        t_days += n;
+        t_day += n;
         return *this;
     }
 
@@ -154,13 +154,13 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator-=(int n) {
-        while (n > DaysPerMonth[t_month-1]) {
-            n -= DaysPerMonth[t_month-1];
+        while (n > daysPerMonth[t_month-1]) {
+            n -= daysPerMonth[t_month-1];
             add_month(-1);
         }
         // n should be less than the number of days
         // this month
-        t_days -= n;
+        t_day -= n;
         return *this;
     }
 
@@ -197,15 +197,16 @@ namespace lab2 {
     }
 
     /**
+     * TODO: Should be moved to some other class
      * Adds a number of months to our current date
      * 
      * @param n Add this number of months to the calendar
      */
-    void add_month(signed int n) {
-        t_year += int(n/12);
-        n = n%12;
-        t_month += n;
-    }
+    // void Date::add_month(signed int n) {
+        // t_year += int(n/12);
+        // n = n%12;
+        // t_month += n;
+    // }
 
     /**
      * Prints a string representation of this date to stdout.
