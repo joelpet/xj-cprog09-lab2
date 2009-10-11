@@ -4,6 +4,7 @@ namespace lab2 {
     class Gregorian : public DateCommon {
 
         bool leap_year() const;
+
         public:
             virtual int week_day() const;
             virtual int days_per_week() const;
