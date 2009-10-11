@@ -159,7 +159,7 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator++() {
-        if (++t_day > days_per_week()) {
+        if (++t_day > days_per_month()) {
             add_month(1);
             t_day = FIRST_DAY;
         }
