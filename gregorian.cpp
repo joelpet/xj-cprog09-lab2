@@ -97,8 +97,19 @@ namespace lab2 {
         return 0;
     }
 
+    /**
+     * Returns true if the current year is a leap year
+     * 
+     * "    Every year that is exactly divisible by four is a leap year, except for years that are exactly divisible by 100; the centurial years that are exactly divisible by 400 are still leap years. For example, the year 1900 is not a leap year; the year 2000 is a leap year. "
+     */
     bool leap_year() {
-        return true;
+        if (t_year % 400)
+            return true;
+        if (t_year % 100)
+            return false;
+        if (t_year % 4)
+            return true;
+        return false;
     }
 
 }
