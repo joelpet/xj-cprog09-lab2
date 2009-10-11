@@ -1,60 +1,6 @@
 #include "gregorian.h"
 namespace lab2 {
 
-    const int daysPerMonth[13] = {0,31,28,31,30,31,30,31, 31, 30, 31, 30, 31};
-    const std::string nameOfDay[] = {"", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"};
-    const std::string nameOfMonth[] = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-    
-    
-    /**
-     * There is 7 days per week in the gregorian calendar
-     */
-    int Gregorian::days_per_week() const {
-        return 7;
-    }
-
-    /**
-     * The number of days this month
-     */
-    int Gregorian::days_this_month() const {
-        if (leap_year() && t_month == 2) {
-            return 29;
-        }
-        else {
-            return daysPerMonth[t_month];
-        }
-    }
-
-    /**
-     * There are always 12 months per year
-     */
-    int Gregorian::months_per_year() const {
-        return 12;
-    }
-
-    /**
-     * Returns the name of the current day
-     * as provided by week_day()
-     */
-    std::string Gregorian::week_day_name() const {
-        return nameOfDay[week_day()];
-    }
-
-    /**
-     * Returns the name of the current month
-     */
-    std::string Gregorian::month_name() const {
-        return nameOfMonth[t_month];
-    }
-
-    /** 
-     * Increases the year with n
-     */
-    int Gregorian::add_year(signed int n) { 
-        t_year += n;
-        return t_year;
-    }
-
     /** 
      * Increases the month with n
      */
