@@ -5,13 +5,14 @@ namespace lab2 {
 
         bool leap_year() const;
         public:
-            virtual int week_day();
-            virtual int days_per_week();
-            virtual int days_this_month();
-            virtual int months_per_year();
-            virtual std::string week_day_name();
-            virtual std::string month_name();
+            virtual int week_day() const;
+            virtual int days_per_week() const;
+            virtual int days_this_month() const;
+            virtual int months_per_year() const;
+            virtual std::string week_day_name() const;
+            virtual std::string month_name() const;
 
+            virtual int add_day(int);
             virtual int add_year(int); 
             virtual int add_month(int);
     

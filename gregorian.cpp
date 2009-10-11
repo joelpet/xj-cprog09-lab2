@@ -7,7 +7,7 @@ namespace lab2 {
     /**
      * Returns the current day of the week
      */
-    int Gregorian::week_day() {
+    int Gregorian::week_day()  const {
         // http://en.wikipedia.org/wiki/Calculating_the_day_of_the_week
         int months[]        = {0,0,3,3,6,1,4,6,2,5,0,3,5};
         int leap_months[]   = {0,6,2,3,6,1,4,6,2,5,0,3,5};
@@ -30,14 +30,14 @@ namespace lab2 {
     /**
      * There is 7 days per week in the gregorian calendar
      */
-    int Gregorian::days_per_week() {
+    int Gregorian::days_per_week() const {
         return 7;
     }
 
     /**
      * The number of days this month
      */
-    int Gregorian::days_this_month() {
+    int Gregorian::days_this_month() const {
         if (leap_year() && t_month == 2) {
             return 29;
         }
@@ -49,7 +49,7 @@ namespace lab2 {
     /**
      * There are always 12 months per year
      */
-    int Gregorian::months_per_year() {
+    int Gregorian::months_per_year() const {
         return 12;
     }
 
@@ -57,14 +57,14 @@ namespace lab2 {
      * Returns the name of the current day
      * as provided by week_day()
      */
-    std::string Gregorian::week_day_name() {
+    std::string Gregorian::week_day_name() const {
         return nameOfDay[week_day()];
     }
 
     /**
      * Returns the name of the current month
      */
-    std::string Gregorian::month_name() {
+    std::string Gregorian::month_name() const {
         return nameOfMonth[t_month];
     }
 
@@ -92,10 +92,21 @@ namespace lab2 {
             return t_month;
         }
     }
+    
+    /**
+     * TODO
+     */
+    int Gregorian::add_day(int n) {
+        return 0;
+    }
 
+    /**
+     * TODO
+     */
     int Gregorian::mod_julian_day() const { // vad är detta?
         return 0;
     }
+
 
     /**
      * Returns true if the current year is a leap year
