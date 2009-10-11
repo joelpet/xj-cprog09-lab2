@@ -86,7 +86,10 @@ namespace lab2 {
             return t_month;
         }
         else {
-            // TODO
+            // Might be broken, didnt think it through thurrowly (spelling?)
+            t_year -= (int)(n - t_month/12);
+            t_month -= (n - t_month)%12;
+            return t_month;
         }
     }
 
