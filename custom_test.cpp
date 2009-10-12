@@ -33,7 +33,7 @@ int main() {
     // operator==
     assert(g1 == g1);
     assert(g4 == g4);
-    assert(j1 == j4);
+    assert(j1 == j1);
     assert(j4 == j4);
     assert(g1 == j1);
     assert(g2 == j2);
@@ -90,6 +90,17 @@ int main() {
     assert(j5.year() == 1858);
     assert(jnow.year() == 2009);
 
+    // month()
+    assert(g1.month() == 1);
+    assert(g2.month() == 1);
+    assert(g3.month() == 1);
+    assert(g4.month() == 1);
+    assert(g5.month() == 1);
+
+
+
+
+    // day()
 
 
 

@@ -3,3 +3,6 @@
 *.h.gch
 *.~
 *.swp
+.cdtproject
+.project
+.settings
