@@ -1,4 +1,7 @@
-all:
+all: lab22a
+
+
+datetest:
 	g++ date.h date.cpp date_common.h date_common.cpp gregorian.h gregorian.cpp julian.h julian.cpp kattistime.h kattistime.cpp datetest.cpp
 
 custom:
