@@ -1,6 +1,8 @@
 #include "date_common.h"
 #include "kattistime.h"
 
+#include <algorithm>
+
 namespace lab2 {
     const std::string nameOfDay[] = {"", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
     const std::string nameOfMonth[] = {"", "january", "februrary", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
@@ -97,16 +99,43 @@ namespace lab2 {
      * @param n The number of months to add to the calendar
      */
     int DateCommon::add_month(int n = 1) {
-        for (int i = 0; i < n; i++) {
-            add_day(days_this_month());
+        // om n == 0, return
+        if (n == 0) {
+            return month();
+        }
 
-            // fix one to many day added in february
-            if (month() == 2) {
-                add_day(-1);
+        // record current day
+        int old_day = day(); 
+        bool on_last_day = old_day - days_this_month() == 0;
+
+        if (n > 0) {
+            // add just enough days to wrap month
+            add_day(days_this_month() - day() + 1);
+            // add up to old_day or as high as possible
+            int i = 1;
+            while (old_day - i >= days_this_month()) {
+                i++;
+            }
+            add_day(old_day - i);
+        } else {
+            int dm = month(), dd = day();
+            // subtract just enough to wrap back
+            add_day(-day());
+            dm = month(), dd = day();
+            // go back to day 1
+            add_day(1-day());
+            dm = month(), dd = day();
+            // go forward to right day
+            if (on_last_day || old_day >= days_this_month()) {
+                add_day(days_this_month() - 1);
+            } else {
+                add_day(old_day - 1);
             }
         }
 
-        return month();
+        // rekursera
+        n = n < 0 ? n+1 : n-1;
+        return add_month(n);
     }
 
     /**

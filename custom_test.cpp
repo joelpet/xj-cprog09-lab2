@@ -21,6 +21,9 @@ int main() {
     Gregorian g3(1858, 11, 16);
     Gregorian g4(1858, 11, 17);
     Gregorian g5(1858, 11, 18);
+    Gregorian g6(2000, 9, 1);
+    Gregorian g7(2000, 5, 31);
+    Gregorian g8(2001, 1, 31);
     Gregorian gnow;
 
     Julian j1(1899, 12, 20);
@@ -28,6 +31,9 @@ int main() {
     Julian j3(1858, 11, 4);
     Julian j4(1858, 11, 5);
     Julian j5(1858, 11, 6);
+    Julian j6(2000, 9, 1);
+    Julian j7(2000, 5, 31);
+    Julian j8(2001, 1, 31);
     Julian jnow;
 
     // operator==
@@ -123,6 +129,25 @@ int main() {
     // add_day
     
     // add_month
+    g3.add_month(1);
+    assert(g3 == Gregorian(1858, 12, 16));
+    g3.add_month(-1);
+    assert(g3 == Gregorian(1858, 11, 16));
+
+    g6.add_month(1);
+    assert(g6 == Gregorian(2000, 10, 1));
+    g7.add_month(1);
+    assert(g7 == Gregorian(2000, 6, 30));
+    g8.add_month(1);
+    assert(g8 == Gregorian(2001, 3, 1));
+
+    g6.add_month(-1);
+    assert(g6 == Gregorian(2000, 9, 1));
+    g7.add_month(-1);
+    assert(g7 == Gregorian(2000, 5, 31));
+    // TODO unsure how to handle this case
+    g8.add_month(-1);
+    assert(g8 == Gregorian(2001, 2, 1));
 
     // add_year
 
