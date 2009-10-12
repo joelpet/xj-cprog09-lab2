@@ -14,6 +14,7 @@ int main() {
     Gregorian e(1998, 9, 1);
     Gregorian f(1998, 8, 31);
     Gregorian g(1998, 8, 1);
+    Gregorian ng();
 
     Julian aj(1998, 9, 13);
     Julian bj(1998, 9, 13);
@@ -22,6 +23,9 @@ int main() {
     Julian ej(1998, 9, 1);
     Julian fj(1998, 8, 31);
     Julian gj(1998, 8, 1);
+    Julian nj();
+
+    std::cout << nj << std::endl;
 
     // Test compare operators
     assert(a == b);

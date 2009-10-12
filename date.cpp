@@ -23,6 +23,8 @@ namespace lab2 {
         t_year  = t->tm_year + 1900;
         t_month = t->tm_mon + 1; // 1-indexed 
         t_day   = t->tm_mday; // 1-indexed
+
+        std::cout << "Date()" << std::endl;
     }
 
     /**

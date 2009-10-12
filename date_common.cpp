@@ -6,6 +6,9 @@ namespace lab2 {
 
     const int daysPerMonth[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
+    DateCommon::DateCommon() : Date() {
+    }
+
     DateCommon::DateCommon(int y, int m, int d) : Date(y,m,d) {}
 
     /**

@@ -32,6 +32,7 @@ namespace lab2 {
      */
     class DateCommon : public Date {
         public:
+            DateCommon();
             DateCommon(int, int, int);
             virtual int add_day(int);
             virtual int add_month(int);

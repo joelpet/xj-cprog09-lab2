@@ -1,6 +1,12 @@
 #include "julian.h"
 
+#include <iostream>
+
 namespace lab2 {
+
+    Julian::Julian() : DateCommon() {
+        std::cout << "Julian()" << std::endl;
+    }
 
     Julian::Julian(int y, int m, int d) : DateCommon(y,m,d) {
     }
