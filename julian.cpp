@@ -39,8 +39,33 @@ namespace lab2 {
      *
      * @link http://www.cs.umu.se/~isak/Snippets/jdn.c
      */
-    long Julian::jdn_to_ymd(long jdn, int & y, int & m, int & d) {
-        // TODO implement
+    void Julian::jdn_to_ymd(long jdn, int & yy, int & mm, int & dd) {
+        long x, z, m, d, y;
+        long daysPer400Years = 146097L;
+        long fudgedDaysPer4000Years = 1460970L + 31;
+
+        x = jdn + 68569L;
+
+        x += 38;
+        daysPer400Years = 146100L;
+        fudgedDaysPer4000Years = 1461000L + 1;
+
+        z = 4 * x / daysPer400Years;
+        x = x - (daysPer400Years * z + 3) / 4;
+        y = 4000 * (x + 1) / fudgedDaysPer4000Years;
+        x = x - 1461 * y / 4 + 31;
+        m = 80 * x / 2447;
+        d = x - 2447 * m / 80;
+        x = m / 11;
+        m = m + 2 - 12 * x;
+        y = 100 * (z - 49) + y + x;
+
+        *yy = (int)y;
+        *mm = (int)m;
+        *dd = (int)d;
+
+        if (*yy <= 0)                   /* adjust BC years */
+            (*yy)--;
     }
 
     /*
