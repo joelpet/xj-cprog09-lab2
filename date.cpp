@@ -103,9 +103,8 @@ namespace lab2 {
             return *this;
         }
 
-        t_day = d.day();
-        t_month = d.month();
-        t_year = d.year();
+        jdn = d.mod_julian_day();
+
 
         assert(*this - d == 0);
 
