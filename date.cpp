@@ -15,16 +15,17 @@ namespace lab2 {
      * Constructs a new date through kattistime.
      */
     Date::Date() {
-        time_t mytime;
-        k_time(&mytime);
+        // time_t mytime;
+        // k_time(&mytime);
 
         // Get local date
-        struct tm * t = gmtime(&mytime);
-        t_year  = t->tm_year + 1900;
-        t_month = t->tm_mon + 1; // 1-indexed 
-        t_day   = t->tm_mday; // 1-indexed
+        // struct tm * t = gmtime(&mytime);
+        // t_year  = t->tm_year + 1900;
+        // t_month = t->tm_mon + 1; // 1-indexed 
+        // t_day   = t->tm_mday; // 1-indexed
 
-        std::cout << "Date()" << std::endl;
+        std::cerr << "Date()" << std::endl;
+        // TODO
     }
 
     /**
@@ -34,7 +35,9 @@ namespace lab2 {
      * @param month The month
      * @param day The day
      */
-    Date::Date(int year, int month, int day) : t_year(year), t_month(month), t_day(day) {
+    // Date::Date(int year, int month, int day) : t_year(year), t_month(month), t_day(day) {
+    Date::Date(int year, int month, int day)  {
+        // TODO
     }
 
     /**
@@ -43,9 +46,7 @@ namespace lab2 {
      * @param datum the date to copy
      */
     Date::Date(const Date & datum) {
-        t_year = datum.year();
-        t_month = datum.month();
-        t_day = datum.day();
+        jdn = datum.mod_julian_day();
         std::cerr << "Date::Date(const Date & datum)" << std::endl;
     }
 
@@ -141,10 +142,11 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator++() {
-        if (++t_day > days_this_month()) {
-            add_month(1);
-            t_day = FIRST_DAY;
-        }
+        // if (++t_day > days_this_month()) {
+            // add_month(1);
+            // t_day = FIRST_DAY;
+        // }
+        // TODO
 
         return *this;
     }
@@ -157,10 +159,11 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator--() {
-        if (--t_day < 1) {
-            add_month(-1);
-            t_day = days_this_month();
-        }
+        // if (--t_day < 1) {
+            // add_month(-1);
+            // t_day = days_this_month();
+        // }
+        // TODO
 
         return *this;
     }
