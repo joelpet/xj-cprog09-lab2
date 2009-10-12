@@ -9,6 +9,7 @@ namespace lab2 {
         public:
             Gregorian();
             Gregorian(int, int, int);
+            virtual int year() const;
             virtual int mod_julian_day() const; 
     };
 

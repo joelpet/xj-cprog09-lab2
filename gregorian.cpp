@@ -19,7 +19,9 @@ namespace lab2 {
      * #Converting_between_Gregorian_calendar_date_and_Julian_Day_Number
      */
     int Gregorian::mod_julian_day() const { 
-        return (1461 * (t_year + 4800 + (t_month - 14)/12))/4 +(367 * (t_month - 2 - 12 * ((t_month - 14)/12)))/12 - (3 * ((t_year + 4900 + (t_month - 14)/12)/100))/4 + t_day - 32075;
+        // return (1461 * (t_year + 4800 + (t_month - 14)/12))/4 +(367 * (t_month - 2 - 12 * ((t_month - 14)/12)))/12 - (3 * ((t_year + 4900 + (t_month - 14)/12)/100))/4 + t_day - 32075;
+        // TODO
+        return 0;
     }
 
 
@@ -32,9 +34,10 @@ namespace lab2 {
      * 1900 is not a leap year; the year 2000 is a leap year.
      */
     bool Gregorian::leap_year() const { 
-        if (t_year % 400) return true; 
-        if (t_year % 100) return false; 
-        if (t_year % 4) return true; 
+        int year = this->year();
+        if (year % 400) return true; 
+        if (year % 100) return false; 
+        if (year % 4) return true; 
         return false;
     }
 
