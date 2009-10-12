@@ -13,8 +13,8 @@ namespace lab2 {
              */
             long jdn;
 
-            virtual long ymd_to_jdn(int y, int m, int d) = 0;
-            virtual void jdn_to_ymd(long jdn, int & y, int & m, int & d) = 0;
+            virtual long ymd_to_jdn(int y, int m, int d) const;
+            virtual void jdn_to_ymd(long jdn, int & y, int & m, int & d) const;
 
         public:
             // Constructors
@@ -50,7 +50,7 @@ namespace lab2 {
             Date & operator+=(int);
             Date & operator-=(int);
 
-            long mod_julian_day() const;
+            int mod_julian_day() const;
     };
 
     std::ostream & operator<<(std::ostream & os, const Date &);

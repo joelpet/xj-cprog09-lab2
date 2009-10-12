@@ -12,7 +12,18 @@ namespace lab2 {
 
 
     /**
-     * Resturns the month of this date.
+     * Returns the year of this date.
+     *
+     * @return The year
+     */
+    int DateCommon::year() const {
+        int y, m, d;
+        jdn_to_ymd(jdn, y, m, d);
+        return y;
+    }
+
+    /**
+     * Returns the month of this date.
      *
      * @return The month
      */

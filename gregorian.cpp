@@ -28,7 +28,7 @@ namespace lab2 {
     /**
      * Returns the JDN for the specified Gregorian date.
      */
-    long Gregorian::ymd_to_jdn(int y, int m, int d) {
+    long Gregorian::ymd_to_jdn(int y, int m, int d) const {
         long jdn;
 
         if (y < 0)              /* adjust BC year */
@@ -47,7 +47,7 @@ namespace lab2 {
      * Writes the Gregorian date's year, month and day to the given
      * integers from the specified JDN.
      */
-    void Gregorian::jdn_to_ymd(long jdn, int & yy, int & mm, int & dd) {
+    void Gregorian::jdn_to_ymd(long jdn, int & yy, int & mm, int & dd) const {
         long x, z, m, d, y;
         long daysPer400Years = 146097L;
         long fudgedDaysPer4000Years = 1460970L + 31;

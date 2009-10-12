@@ -21,7 +21,7 @@ namespace lab2 {
      *
      * @link http://www.cs.umu.se/~isak/Snippets/jdn.c
      */
-    long Julian::ymd_to_jdn(int y, int m, int d) {
+    long Julian::ymd_to_jdn(int y, int m, int d) const {
         long jdn;
 
         if (y < 0)              /* adjust BC year */
@@ -39,7 +39,7 @@ namespace lab2 {
      *
      * @link http://www.cs.umu.se/~isak/Snippets/jdn.c
      */
-    void Julian::jdn_to_ymd(long jdn, int & yy, int & mm, int & dd) {
+    void Julian::jdn_to_ymd(long jdn, int & yy, int & mm, int & dd) const {
         long x, z, m, d, y;
         long daysPer400Years = 146097L;
         long fudgedDaysPer4000Years = 1460970L + 31;
@@ -67,16 +67,6 @@ namespace lab2 {
         if (yy <= 0)                   /* adjust BC years */
             (yy)--;
     }
-
-    /*
-     * Returns the year of this date.
-     *
-     * @return The year
-     */
-    int Julian::year() const {
-        return 0; // TODO
-    }
-
 
 }
 
