@@ -18,14 +18,26 @@ namespace lab2 {
 
     /**
      * Returns the JDN for the specified Julian date.
+     *
+     * @link http://www.cs.umu.se/~isak/Snippets/jdn.c
      */
     long Julian::ymd_to_jdn(int y, int m, int d) {
-        // TODO implement
+        long jdn;
+
+        if (y < 0)              /* adjust BC year */
+            y++;
+
+        jdn = 367L * y - 7 * (y + 5001L + (m - 9) / 7) / 4
+            + 275 * m / 9 + d + 1729777L;
+
+        return jdn;
     }
 
     /**
      * Writes the Julian date's year, month and day to the given
      * integers from the specified JDN.
+     *
+     * @link http://www.cs.umu.se/~isak/Snippets/jdn.c
      */
     long Julian::jdn_to_ymd(long jdn, int & y, int & m, int & d) {
         // TODO implement
