@@ -2,7 +2,11 @@
 
 namespace lab2 {
 
+    Julian::Julian() {
+    }
+
     Julian::Julian(int y, int m, int d) : DateCommon(y,m,d) {
+        // TODO borde inte vara samma som vanligt
     }
 
     /**

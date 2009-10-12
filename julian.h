@@ -7,6 +7,7 @@ namespace lab2 {
         bool leap_year() const;
 
         public:
+            Julian();
             Julian(int, int, int);
             virtual int mod_julian_day() const; 
     };
