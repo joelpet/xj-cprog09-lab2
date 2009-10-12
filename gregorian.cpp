@@ -1,10 +1,12 @@
 #include "gregorian.h"
 
+#include <iostream>
+
 namespace lab2 {
 
     Gregorian::Gregorian() {}
 
-    Gregorian::Gregorian(int y, int m, int d) {}
+    Gregorian::Gregorian(int y, int m, int d) : DateCommon(y, m, d) {}
 
     /** 
      * Returns true if the current year is a leap year

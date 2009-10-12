@@ -13,6 +13,8 @@ namespace lab2 {
              */
             long jdn;
 
+            long get_jdn() const;
+
             virtual long ymd_to_jdn(int y, int m, int d) const = 0;
             virtual void jdn_to_ymd(long jdn, int & y, int & m, int & d) const = 0;
 

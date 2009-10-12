@@ -34,22 +34,15 @@ namespace lab2 {
         std::cerr << "Date::Date(const Date & datum)" << std::endl;
     }
 
-    /**
-     * Adds the specified number of years and returns the new year.
-     * Then returns the resulting year, which may be handy to have.
-     *
-     * @param n Number of years to add
-     * @return The new year
-     */
-    // int Date::add_year(int n = 1) {
-        // return t_year += n;
-    // }
+    long Date::get_jdn() const {
+        return jdn;
+    }
 
     bool Date::operator==(const Date & d) const {
-        return d.mod_julian_day() == this->mod_julian_day();
+        return d.get_jdn() == this->get_jdn();
     }
     bool Date::operator!=(const Date & d) const {
-        return !(*this == d);
+        return d.get_jdn() != this->get_jdn();
     }
     bool Date::operator<=(const Date & d) const {
         return *this - d <= 0;
@@ -73,7 +66,7 @@ namespace lab2 {
      * @return The integral difference between the dates
      */
     int Date::operator-(const Date & d) const {
-        return this->mod_julian_day() - d.mod_julian_day();
+        return this->get_jdn() - d.get_jdn();
     }
 
     /**
@@ -87,7 +80,7 @@ namespace lab2 {
             return *this;
         }
 
-        jdn = d.mod_julian_day();
+        jdn = d.get_jdn();
 
         assert(*this - d == 0);
 
@@ -117,9 +110,7 @@ namespace lab2 {
     }
 
     /** 
-     * Increments this date by one day. Makes sure the days wrap and
-     * month in that case increase, which in turn will do the same
-     * check with year.
+     * Increments this date by one day.
      *
      * @return A reference to this date
      */
@@ -130,9 +121,7 @@ namespace lab2 {
     }
 
     /**
-     * Decreases this date by one day. Makes sure the days wrap and
-     * month in that case increase, which in turn will do the same 
-     * thing with year.
+     * Decreases this date by one day.
      *
      * @return A reference to this date
      */
@@ -142,8 +131,10 @@ namespace lab2 {
     }
 
     /**
-     * Returns the modified julian day. That is the number of days
-     * since the Gregorian date November 17, 1858.
+     * Returns the modified julian day of this date. That is the number 
+     * of days since the Gregorian date November 17, 1858.
+     *
+     * @return The modified julian day
      */
     int Date::mod_julian_day() const { 
         return jdn - JDN_17_NOV_1858;
@@ -166,7 +157,7 @@ namespace lab2 {
         day.fill('0');
         day << d.day();
         
-        std::cout << d.year() << "-" << month.str() << "-" << day.str() << std::endl;
+        std::cout << d.year() << "-" << month.str() << "-" << day.str();
         return os;
     }
 

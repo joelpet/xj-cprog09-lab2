@@ -1,11 +1,20 @@
 #include "gregorian.h"
 #include "julian.h"
+#include "kattistime.h"
 #include <assert.h>
 #include <iostream>
 
 int main() {
     using namespace lab2;
+
     std::cout << "start custom tests" << std::endl;
+
+    // set up kattistime
+    time_t tp;
+    time(&tp);    
+    set_k_time(tp);
+
+    // set up some test objects 
 
     Gregorian a(1998, 9, 13);
     Gregorian b(1998, 9, 13);
@@ -15,7 +24,7 @@ int main() {
     Gregorian f(1998, 8, 31);
     Gregorian g(1998, 8, 1);
     Gregorian h(1999, 11, 1); 
-    Gregorian ng();
+    Gregorian ng;
 
     Julian aj(1998, 9, 13);
     Julian bj(1998, 9, 13);
@@ -25,8 +34,6 @@ int main() {
     Julian fj(1998, 8, 31);
     Julian gj(1998, 8, 1);
     Julian nj;
-
-    std::cout << nj << std::endl;
 
     // Test compare operators
     assert(a == b);
