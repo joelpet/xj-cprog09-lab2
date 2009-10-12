@@ -142,11 +142,7 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator++() {
-        // if (++t_day > days_this_month()) {
-            // add_month(1);
-            // t_day = FIRST_DAY;
-        // }
-        // TODO
+        jdn++;
 
         return *this;
     }
@@ -159,12 +155,7 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator--() {
-        // if (--t_day < 1) {
-            // add_month(-1);
-            // t_day = days_this_month();
-        // }
-        // TODO
-
+        jdn--;
         return *this;
     }
 
