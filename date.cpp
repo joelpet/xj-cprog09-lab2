@@ -206,6 +206,7 @@ namespace lab2 {
         day << d.day();
         
         std::cout << d.year() << "-" << month.str() << "-" << day.str() << std::endl;
+        return os;
     }
 
 }
