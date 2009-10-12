@@ -4,12 +4,24 @@
 
 namespace lab2 {
 
-    Julian::Julian() : DateCommon() {
-        std::cout << "Julian()" << std::endl;
+    Julian::Julian() {
+        // todays gregorian date
+        int & y = t_year;
+        int & m = t_month;
+        int & d = t_day;
+
+        int current_jd = 367*y-(7*(y+5001+(m-9)/7))/4+(275*m)/9+d+1729777;
+
+        // reset to jd == 0
+        y = -4713;
+        m = 1;
+        d = 1;
+
+        // add days
+        add_days(current_jd);
     }
 
     Julian::Julian(int y, int m, int d) : DateCommon(y,m,d) {
-        // TODO borde inte vara samma som vanligt
     }
 
     /**
