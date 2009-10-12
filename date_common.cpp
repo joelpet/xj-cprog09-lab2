@@ -116,14 +116,21 @@ namespace lab2 {
      * Increases the year with n
      */
     int DateCommon::add_year(signed int n = 1) { 
-        // t_year += n;
-        // if (!is_valid(t_year, t_month, t_day)) {
-        // // 29 feb
-        // t_day = 28;
-        // }
-        // return t_year;
-        // TODO
-        return 0;
+        int year;
+        int month;
+        int day;
+        jdn_to_ymd(jdn, year, month, day);
+
+        year += n;
+
+        if (!is_valid(year, month, day)) {
+            // 29 feb
+            day = 28;
+        }
+
+        jdn = ymd_to_jdn(year, month, day);
+
+        return year;
     }
 
     /**
