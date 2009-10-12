@@ -83,27 +83,28 @@ namespace lab2 {
      * @return The new day
      */
     int DateCommon::add_day(int n) {
-        if (n > 0) {
-            for (int i = 0; i < n; i++) {
-                ++(*this);
-            }
-        }
-        else {
-            for (; n < 0; n++) {
-                --(*this);
-            }
-        }
+        jdn += n;
 
         return day();
     }
 
     /**
-     * Adds a number of months to our current date
+     * Adds a number of months to our current date and returns the 
+     * new month.
      * 
-     * @param n Add this number of months to the calendar
+     * @param n The number of months to add to the calendar
      */
-    int DateCommon::add_month(signed int n = 1) {
-        // TODO
+    int DateCommon::add_month(int n = 1) {
+        for (int i = 0; i < n; i++) {
+            add_day(days_this_month());
+
+            // fix one to many day added in february
+            if (month() == 2) {
+                add_day(-1);
+            }
+        }
+
+        return month();
     }
 
     /**
