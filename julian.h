@@ -12,6 +12,7 @@ namespace lab2 {
         public:
             Julian();
             Julian(int, int, int);
+            Julian(const Date & datum);
     };
 
 }

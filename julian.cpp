@@ -9,6 +9,8 @@ namespace lab2 {
     Julian::Julian(int y, int m, int d) {
         jdn = ymd_to_jdn(y, m, d);
     }
+    
+    Julian::Julian(const Date & datum) : DateCommon(datum) {}
 
     /** 
      * Returns true if the current year is a leap year. That is, if

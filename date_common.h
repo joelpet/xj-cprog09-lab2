@@ -37,6 +37,7 @@ namespace lab2 {
         public:
             DateCommon();
             DateCommon(int, int, int);
+            DateCommon(const Date & datum);
             virtual int year() const;
             virtual int month() const;
             virtual int day() const;
