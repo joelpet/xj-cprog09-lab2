@@ -104,7 +104,17 @@ int main() {
     assert(j5.month() == 11);
 
     // day()
+    assert(g1.day() == 1);
+    assert(g2.day() == 13);
+    assert(g3.day() == 16);
+    assert(g4.day() == 17);
+    assert(g5.day() == 18);
 
+    assert(j1.day() == 20);
+    assert(j2.day() == 1);
+    assert(j3.day() == 4);
+    assert(j4.day() == 5);
+    assert(j5.day() == 6);
 
 
 
