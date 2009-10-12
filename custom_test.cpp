@@ -14,6 +14,7 @@ int main() {
     Gregorian e(1998, 9, 1);
     Gregorian f(1998, 8, 31);
     Gregorian g(1998, 8, 1);
+    Gregorian h(1999, 11, 1); 
     Gregorian ng();
 
     Julian aj(1998, 9, 13);
@@ -46,10 +47,14 @@ int main() {
 
     // std::cout << g << std::endl;
     g.add_month(15);
-    // std::cout << g << std::endl;
+    assert(g == h);
+    std::cout << g << std::endl;
+    std::cout << "|" << std::endl;
     g.add_month(-16);
-    // std::cout << g << std::endl;
-    // std::cout << e << std::endl;
+    std::cout << "|" << std::endl;
+    std::cout << g << std::endl;
+    std::cout << "|" << std::endl;
+    std::cout << e << std::endl;
     assert(g == e);
 
     --e;
@@ -68,6 +73,7 @@ int main() {
     assert(c == d); // Osäker på att jag räknat rätt, dubbelkolla om det blir fel här
 
     std::cout << a << std::endl;
+    std::cout << "|" << std::endl;
 
     std::cout << "end custom tests" << std::endl;
 

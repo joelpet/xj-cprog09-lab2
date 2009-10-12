@@ -3,6 +3,7 @@
 #define DATE_COMMON_H
 
 #include "date.h"
+#include <stdexcept>
 
 namespace lab2 {
 

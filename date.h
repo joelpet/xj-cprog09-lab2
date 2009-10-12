@@ -11,7 +11,7 @@ namespace lab2 {
             int t_year;
             int t_month; // one indexed
             int t_day; // one indexed
-
+            virtual bool is_valid(int, int, int) const = 0;
 
         public:
             // Constructors

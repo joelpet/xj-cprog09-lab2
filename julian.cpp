@@ -10,6 +10,10 @@ namespace lab2 {
 
     Julian::Julian(int y, int m, int d) : DateCommon(y,m,d) {
         // TODO borde inte vara samma som vanligt
+        if (!is_valid(t_year, t_month, t_day)) {
+            throw std::out_of_range("invalid date");
+        }
+
     }
 
     /**
