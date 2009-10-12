@@ -17,9 +17,9 @@ namespace lab2 {
      * @return The month
      */
     int DateCommon::month() const {
-        // return t_month;
-        return 0;
-        // TODO
+        int y, m, d;
+        jdn_to_ymd(jdn, y, m, d);
+        return m;
     }
     /**
      * Returns the day of this date.
@@ -27,9 +27,9 @@ namespace lab2 {
      * @retun The day
      */
     int DateCommon::day() const {
-        //return t_day;
-        //TODO
-        return 0;
+        int y, m, d;
+        jdn_to_ymd(jdn, y, m, d);
+        return d;
     }
 
     /**
