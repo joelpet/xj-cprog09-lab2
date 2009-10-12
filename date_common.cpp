@@ -106,6 +106,13 @@ namespace lab2 {
         // TODO
     }
 
+    /**
+     * Returns the week day, where 1 means Monday.
+     */
+    int DateCommon::week_day() const {
+        return jdn % 7 + 1;
+    }
+
     bool DateCommon::is_valid(int year, int month, int day) const {
         if (day > daysPerMonth[month]) return false;
         if (leap_year() && month == 2 && day > daysPerMonth[month]+1) return false;
@@ -131,13 +138,6 @@ namespace lab2 {
         jdn = ymd_to_jdn(year, month, day);
 
         return year;
-    }
-
-    /**
-     * Returns the day of the week.
-     */
-    int DateCommon::week_day() const {
-        return mod_julian_day() % days_per_week() + 1;
     }
 
     /**
