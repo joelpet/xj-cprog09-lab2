@@ -8,7 +8,7 @@ namespace lab2 {
     class Date {
 
         protected:
-
+            int jdn;
 
         public:
             // Constructors
