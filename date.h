@@ -13,8 +13,8 @@ namespace lab2 {
              */
             long jdn;
 
-            virtual long ymd_to_jdn(int y, int m, int d, bool julian) = 0;
-            virtual long jdn_to_ymd(long jdn, int & y, int & m, int & d, bool julian) = 0;
+            virtual long ymd_to_jdn(int y, int m, int d) = 0;
+            virtual void jdn_to_ymd(long jdn, int & y, int & m, int & d) = 0;
 
         public:
             // Constructors

@@ -60,12 +60,12 @@ namespace lab2 {
         m = m + 2 - 12 * x;
         y = 100 * (z - 49) + y + x;
 
-        *yy = (int)y;
-        *mm = (int)m;
-        *dd = (int)d;
+        yy = (int)y;
+        mm = (int)m;
+        dd = (int)d;
 
-        if (*yy <= 0)                   /* adjust BC years */
-            (*yy)--;
+        if (yy <= 0)                   /* adjust BC years */
+            (yy)--;
     }
 
     /*

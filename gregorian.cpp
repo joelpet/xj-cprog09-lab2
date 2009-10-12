@@ -36,7 +36,7 @@ namespace lab2 {
      * Writes the Gregorian date's year, month and day to the given
      * integers from the specified JDN.
      */
-    long Gregorian::jdn_to_ymd(long jdn, int & y, int & m, int & d) {
+    void Gregorian::jdn_to_ymd(long jdn, int & y, int & m, int & d) {
         // TODO implement
     }
 
