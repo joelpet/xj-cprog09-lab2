@@ -59,7 +59,7 @@ namespace lab2 {
     /** 
      * Increases the year with n
      */
-    int DateCommon::add_year(signed int n) { 
+    int DateCommon::add_year(signed int n = 1) { 
         t_year += n;
         return t_year;
     }
