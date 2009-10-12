@@ -38,4 +38,13 @@ namespace lab2 {
         return false;
     }
 
+    /**
+     * Returns the year of this date.
+     *
+     * @return The year
+     * TODO
+     */
+    int Gregorian::year() const {
+        return 0;
+    }
 }

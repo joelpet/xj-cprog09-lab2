@@ -12,19 +12,11 @@ namespace lab2 {
 
 
     /**
-     * Returns the year of this date.
-     *
-     * @return The year
-     */
-    int Date::year() const {
-        return t_year;
-    }
-    /**
      * Resturns the month of this date.
      *
      * @return The month
      */
-    int Date::month() const {
+    int DateCommon::month() const {
         return t_month;
     }
     /**
@@ -32,7 +24,7 @@ namespace lab2 {
      *
      * @retun The day
      */
-    int Date::day() const {
+    int DateCommon::day() const {
         return t_day;
     }
 

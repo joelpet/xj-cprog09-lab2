@@ -25,6 +25,15 @@ namespace lab2 {
     }
 
     /**
+     * Returns the year of this date.
+     *
+     * @return The year
+     */
+    int Julian::year() const {
+        return 0; // TODO
+    }
+
+    /**
      * Returns the Julian day number, which is the interval of time in days
      * since January 1, 4713 BC Greenwich noon.
      *
