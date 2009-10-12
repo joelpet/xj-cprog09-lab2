@@ -49,30 +49,6 @@ namespace lab2 {
         std::cerr << "Date::Date(const Date & datum)" << std::endl;
     }
 
-    /**
-     * Returns the year of this date.
-     *
-     * @return The year
-     */
-    int Date::year() const {
-        return t_year;
-    }
-    /**
-     * Resturns the month of this date.
-     *
-     * @return The month
-     */
-    int Date::month() const {
-        return t_month;
-    }
-    /**
-     * Returns the day of this date.
-     *
-     * @retun The day
-     */
-    int Date::day() const {
-        return t_day;
-    }
 
     /**
      * Adds the specified number of years and returns the new year.

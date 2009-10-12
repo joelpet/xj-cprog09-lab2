@@ -8,9 +8,6 @@ namespace lab2 {
     class Date {
 
         protected:
-            int t_year;
-            int t_month; // one indexed
-            int t_day; // one indexed
 
 
         public:
@@ -19,9 +16,9 @@ namespace lab2 {
             Date(int year, int month, int day);
             Date(const Date & datum);
 
-            int year() const;
-            int month() const;
-            int day() const;
+            virtual int year() const = 0;
+            virtual int month() const = 0;
+            virtual int day() const = 0;
             virtual int week_day() const = 0;
             virtual int days_per_week() const = 0;
             virtual int days_this_month() const = 0;

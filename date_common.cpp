@@ -11,6 +11,32 @@ namespace lab2 {
 
     DateCommon::DateCommon(int y, int m, int d) : Date(y,m,d) {}
 
+
+    /**
+     * Returns the year of this date.
+     *
+     * @return The year
+     */
+    int Date::year() const {
+        return t_year;
+    }
+    /**
+     * Resturns the month of this date.
+     *
+     * @return The month
+     */
+    int Date::month() const {
+        return t_month;
+    }
+    /**
+     * Returns the day of this date.
+     *
+     * @retun The day
+     */
+    int Date::day() const {
+        return t_day;
+    }
+
     /**
      * Adds the specified number of days to this date.
      *
