@@ -187,6 +187,3 @@ namespace lab2 {
     }
 
 }
-    // int main() {
-// 
-    // }
