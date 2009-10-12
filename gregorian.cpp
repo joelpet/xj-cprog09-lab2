@@ -2,6 +2,9 @@
 
 namespace lab2 {
 
+    Gregorian::Gregorian() {
+
+    }
     Gregorian::Gregorian(int y, int m, int d) : DateCommon(y,m,d) {
     }
 

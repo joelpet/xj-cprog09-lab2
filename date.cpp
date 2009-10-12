@@ -81,9 +81,9 @@ namespace lab2 {
      * @param n Number of years to add
      * @return The new year
      */
-    int Date::add_year(int n = 1) {
-        return t_year += n;
-    }
+    // int Date::add_year(int n = 1) {
+        // return t_year += n;
+    // }
 
     bool Date::operator==(const Date & d) const {
         return d.mod_julian_day() == this->mod_julian_day();

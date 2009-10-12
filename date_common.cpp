@@ -38,31 +38,42 @@ namespace lab2 {
      * @param n Add this number of months to the calendar
      */
     // TODO probably broken
-    int DateCommon::add_month(signed int n) {
-        if (n > 0) {
-            t_year += (int)((n + t_month -1)/12);
-            t_month = (n + t_month-1)%12+1;
-            return t_month;
-        }
+    int DateCommon::add_month(signed int n = 1) {
+        bool pos;
+        if (n > 0)
+            pos = true;
         else {
-            n *= -1;
-            if (t_month - n > 0) {
-                t_month -= n;
-            }
-            else {
-                n -= t_month;
-                t_year--;
-                t_year -= (int)(n/12);
-                t_month = 12-(n-1)%12;
-            }
-            return t_month;
+            pos = false;
         }
+
+        int addMonths = n + t_month;
+
+        int addYear, newMonth;
+
+        addYear = (int)(addMonths/12);
+        newMonth = addMonths - addYear*12;
+
+        if (!is_valid(t_year + addYear, newMonth, t_day)) {
+            addMonths--;
+            add_day(30);
+
+            addYear = (int)(addMonths/12);
+            newMonth = addMonths - addYear*12;
+
+        }
+        t_year += addYear;
+        t_month = newMonth;
+    }
+
+    bool DateCommon::is_valid(int year, int month, int day) const {
+        if (day > daysPerMonth[month]) return false;
+        if (leap_year() && month == 2 && day > daysPerMonth[month]+1) return false;
     }
 
     /** 
      * Increases the year with n
      */
-    int DateCommon::add_year(signed int n) { 
+    int DateCommon::add_year(signed int n = 1) { 
         t_year += n;
         return t_year;
     }
