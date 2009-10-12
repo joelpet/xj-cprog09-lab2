@@ -36,4 +36,14 @@ namespace lab2 {
         // TODO implement
     }
 
+    /*
+     * Returns the year of this date.
+     *
+     * @return The year
+     * TODO
+     */
+    int Gregorian::year() const {
+        return 0;
+    }
+
 }

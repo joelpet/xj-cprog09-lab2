@@ -31,5 +31,15 @@ namespace lab2 {
         // TODO implement
     }
 
+    /*
+     * Returns the year of this date.
+     *
+     * @return The year
+     */
+    int Julian::year() const {
+        return 0; // TODO
+    }
+
+
 }
 
