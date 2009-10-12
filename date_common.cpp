@@ -17,7 +17,9 @@ namespace lab2 {
      * @return The month
      */
     int DateCommon::month() const {
-        return t_month;
+        // return t_month;
+        return 0;
+        // TODO
     }
     /**
      * Returns the day of this date.
@@ -25,7 +27,9 @@ namespace lab2 {
      * @retun The day
      */
     int DateCommon::day() const {
-        return t_day;
+        //return t_day;
+        //TODO
+        return 0;
     }
 
     /**
@@ -46,7 +50,9 @@ namespace lab2 {
             }
         }
 
-        return t_day;
+        // return t_day;
+        return 0;
+        // TODO
     }
 
     /**
@@ -54,32 +60,8 @@ namespace lab2 {
      * 
      * @param n Add this number of months to the calendar
      */
-    // TODO probably broken
     int DateCommon::add_month(signed int n = 1) {
-        bool pos;
-        if (n > 0)
-            pos = true;
-        else {
-            pos = false;
-        }
-
-        int addMonths = n + t_month;
-
-        int addYear, newMonth;
-
-        addYear = (int)(addMonths/12);
-        newMonth = addMonths - addYear*12;
-
-        if (!is_valid(t_year + addYear, newMonth, t_day)) {
-            addMonths--;
-            add_day(30);
-
-            addYear = (int)(addMonths/12);
-            newMonth = addMonths - addYear*12;
-
-        }
-        t_year += addYear;
-        t_month = newMonth;
+        // TODO
     }
 
     bool DateCommon::is_valid(int year, int month, int day) const {
@@ -91,12 +73,14 @@ namespace lab2 {
      * Increases the year with n
      */
     int DateCommon::add_year(signed int n = 1) { 
-        t_year += n;
-        if (!is_valid(t_year, t_month, t_day)) {
-            // 29 feb
-            t_day = 28;
-        }
-        return t_year;
+        // t_year += n;
+        // if (!is_valid(t_year, t_month, t_day)) {
+            // // 29 feb
+            // t_day = 28;
+        // }
+        // return t_year;
+        // TODO
+        return 0;
     }
 
     /**
@@ -118,11 +102,11 @@ namespace lab2 {
      * The number of days this month
      */
     int DateCommon::days_this_month() const {
-        if (leap_year() && t_month == 2) {
+        if (leap_year() && month() == 2) {
             return 29;
         }
         else {
-            return daysPerMonth[t_month];
+            return daysPerMonth[month()];
         }
     }
 
@@ -148,7 +132,7 @@ namespace lab2 {
      * Returns the name of the current month
      */
     std::string DateCommon::month_name() const {
-        return nameOfMonth[t_month];
+        return nameOfMonth[month()];
     }
 
 
