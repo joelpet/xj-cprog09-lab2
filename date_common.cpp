@@ -30,6 +30,8 @@ namespace lab2 {
     DateCommon::DateCommon(int y, int m, int d) {
         init(y, m, d);
     }
+    
+    DateCommon::DateCommon(const Date & datum) : Date(datum) {}
 
     /**
      * Initiates this date by calculating the JDN from the assumed
