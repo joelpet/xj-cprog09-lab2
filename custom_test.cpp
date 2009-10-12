@@ -23,7 +23,7 @@ int main() {
     Julian ej(1998, 9, 1);
     Julian fj(1998, 8, 31);
     Julian gj(1998, 8, 1);
-    Julian nj();
+    Julian nj;
 
     std::cout << nj << std::endl;
 

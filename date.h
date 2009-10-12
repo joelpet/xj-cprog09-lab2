@@ -8,10 +8,11 @@ namespace lab2 {
     class Date {
 
         protected:
-            int t_year;
-            int t_month; // one indexed
-            int t_day; // one indexed
-
+            /**
+             * Number of full days since January 1, 
+             * 4713 BC Greenwich noon.
+             */
+            int jdn;
 
         public:
             // Constructors
@@ -48,6 +49,8 @@ namespace lab2 {
             Date & operator-=(int);
 
             virtual int mod_julian_day() const = 0;
+            virtual long ymd_to_jdn(int y, int m, int d, bool julian) = 0;
+            virtual long jdn_to_ymd(long jdn, int & y, int & m, int & d, bool julian) = 0;
     };
 
     std::ostream & operator<<(std::ostream & os, const Date &);
