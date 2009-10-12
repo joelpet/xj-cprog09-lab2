@@ -50,9 +50,7 @@ namespace lab2 {
             }
         }
 
-        // return t_day;
-        return 0;
-        // TODO
+        return day();
     }
 
     /**
