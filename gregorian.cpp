@@ -2,12 +2,9 @@
 
 namespace lab2 {
 
-    Gregorian::Gregorian() {
+    Gregorian::Gregorian() {}
 
-    }
-    Gregorian::Gregorian(int y, int m, int d) : DateCommon(y,m,d) {
-    }
-
+    Gregorian::Gregorian(int y, int m, int d) {}
 
     /** 
      * Returns true if the current year is a leap year
@@ -70,16 +67,6 @@ namespace lab2 {
 
         if (yy <= 0)                   /* adjust BC years */
             (yy)--;
-    }
-
-    /*
-     * Returns the year of this date.
-     *
-     * @return The year
-     * TODO
-     */
-    int Gregorian::year() const {
-        return 0;
     }
 
 }

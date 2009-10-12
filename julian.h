@@ -12,7 +12,6 @@ namespace lab2 {
         public:
             Julian();
             Julian(int, int, int);
-            virtual int mod_julian_day() const; 
     };
 
 }

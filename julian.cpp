@@ -6,7 +6,7 @@ namespace lab2 {
 
     Julian::Julian() {}
 
-    Julian::Julian(int y, int m, int d) : DateCommon(y,m,d) {}
+    Julian::Julian(int y, int m, int d) {}
 
     /** 
      * Returns true if the current year is a leap year. That is, if

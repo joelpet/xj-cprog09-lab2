@@ -12,7 +12,6 @@ namespace lab2 {
         public:
             Gregorian();
             Gregorian(int, int, int);
-            virtual int year() const;
     };
 
 }

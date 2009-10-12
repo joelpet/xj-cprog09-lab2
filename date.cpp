@@ -1,7 +1,7 @@
 //#define NDEBUG
 
 #include "date.h"
-#include "kattistime.h"
+
 #include <assert.h>
 #include <iostream>
 #include <sstream>
@@ -14,39 +14,18 @@ namespace lab2 {
     // http://tycho.usno.navy.mil/mjd.html
     static const long JDN_17_NOV_1858 = 2400001;
 
-
     /**
-     * Constructs a new date through kattistime.
+     * Constructs a new date.
      */
-    Date::Date() {
-        time_t mytime;
-        k_time(&mytime);
-
-        // Get local date
-        struct tm * t = gmtime(&mytime);
-        int year  = t->tm_year + 1900;
-        int month = t->tm_mon + 1; // 1-indexed 
-        int day   = t->tm_mday; // 1-indexed
-
-        jdn = ymd_to_jdn(year, month, day);
-
-        std::cerr << "Date()" << std::endl;
-    }
+    Date::Date() {}
 
     /**
      * Constructs a new date with the specified date data.
-     *
-     * @param year The year
-     * @param month The month
-     * @param day The day
      */
-    // Date::Date(int year, int month, int day) : t_year(year), t_month(month), t_day(day) {
-    Date::Date(int year, int month, int day)  {
-        // TODO
-    }
+    Date::Date(int y, int m, int d) {}
 
     /**
-     * Copy constructor for a Date.
+     * Date copy constructor.
      *
      * @param datum the date to copy
      */
@@ -54,7 +33,6 @@ namespace lab2 {
         jdn = datum.mod_julian_day();
         std::cerr << "Date::Date(const Date & datum)" << std::endl;
     }
-
 
     /**
      * Adds the specified number of years and returns the new year.

@@ -32,6 +32,8 @@ namespace lab2 {
      * like days_per_week() are placed inside here.
      */
     class DateCommon : public Date {
+        void init(int, int, int);
+
         public:
             DateCommon();
             DateCommon(int, int, int);

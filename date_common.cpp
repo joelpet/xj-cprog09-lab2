@@ -1,4 +1,5 @@
 #include "date_common.h"
+#include "kattistime.h"
 
 namespace lab2 {
     const std::string nameOfDay[] = {"", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
@@ -6,9 +7,41 @@ namespace lab2 {
 
     const int daysPerMonth[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    DateCommon::DateCommon() {}
+    /**
+     * Constructs a new date. Assumes that the system gives a
+     * Gregorian date.
+     */
+    DateCommon::DateCommon() {
+        time_t mytime;
+        k_time(&mytime);
 
-    DateCommon::DateCommon(int y, int m, int d) : Date(y,m,d) {}
+        // get local gregorian date
+        struct tm * t = gmtime(&mytime);
+        int y = t->tm_year + 1900;
+        int m = t->tm_mon + 1; // 1-indexed 
+        int d = t->tm_mday; // 1-indexed
+
+        init(y, m, d);
+    }
+
+    /**
+     * Constructs a new date with the specified date data.
+     */
+    DateCommon::DateCommon(int y, int m, int d) {
+        init(y, m, d);
+    }
+
+    /**
+     * Initiates this date by calculating the JDN from the assumed
+     * Gregorian date.
+     */
+    void DateCommon::init(int y, int m, int d) {
+        jdn = (long)(d - 32076)
+            + 1461L * (y + 4800L + (m - 14) / 12) / 4
+            + 367 * (m - 2 - (m - 14) / 12 * 12) / 12
+            - 3 * ((y + 4900L + (m - 14) / 12) / 100) / 4
+            + 1;            /* correction by rdg */
+    }
 
 
     /**
@@ -85,8 +118,8 @@ namespace lab2 {
     int DateCommon::add_year(signed int n = 1) { 
         // t_year += n;
         // if (!is_valid(t_year, t_month, t_day)) {
-            // // 29 feb
-            // t_day = 28;
+        // // 29 feb
+        // t_day = 28;
         // }
         // return t_year;
         // TODO
