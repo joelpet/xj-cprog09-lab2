@@ -19,7 +19,7 @@ namespace lab2 {
     /**
      * Returns the JDN for the specified Julian date.
      */
-    long ymd_to_jdn(int y, int m, int d) {
+    long Julian::ymd_to_jdn(int y, int m, int d) {
         // TODO implement
     }
 
@@ -27,7 +27,7 @@ namespace lab2 {
      * Writes the Julian date's year, month and day to the given
      * integers from the specified JDN.
      */
-    long jdn_to_ymd(long jdn, int & y, int & m, int & d) {
+    long Julian::jdn_to_ymd(long jdn, int & y, int & m, int & d) {
         // TODO implement
     }
 

@@ -10,9 +10,9 @@ namespace lab2 {
         virtual long jdn_to_ymd(long jdn, int & y, int & m, int & d);
 
         public:
-        Gregorian();
-        Gregorian(int, int, int);
-        virtual int mod_julian_day() const; 
+            Gregorian();
+            Gregorian(int, int, int);
+            virtual int year() const;
     };
 
 }

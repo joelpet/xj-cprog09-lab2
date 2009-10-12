@@ -9,6 +9,10 @@
 namespace lab2 {
     static const int FIRST_MONTH = 1;
     static const int FIRST_DAY = 1;
+    // XXX This might be wrong! Make sure to test. 
+    // Should perhaps be 2400000
+    // http://tycho.usno.navy.mil/mjd.html
+    static const long JDN_17_NOV_1858 = 2400001;
 
 
     /**
@@ -107,7 +111,6 @@ namespace lab2 {
 
         jdn = d.mod_julian_day();
 
-
         assert(*this - d == 0);
 
         return *this;
@@ -143,11 +146,7 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator++() {
-        // if (++t_day > days_this_month()) {
-            // add_month(1);
-            // t_day = FIRST_DAY;
-        // }
-        // TODO
+        jdn++;
 
         return *this;
     }
@@ -160,27 +159,16 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator--() {
-        // if (--t_day < 1) {
-            // add_month(-1);
-            // t_day = days_this_month();
-        // }
-        // TODO
-
+        jdn--;
         return *this;
     }
 
-/**
-     * Returns the Julian day number, which is the interval of time in days
-     * since January 1, 4713 BC Greenwich noon.
-     *
-     * This method is valid for all Gregorian calendar dates after November 23,
-     * which indeed covers all years from 1858 to 2558.
-     *
-     * http://en.wikipedia.org/wiki/Julian_day
-     * #Converting_between_Gregorian_calendar_date_and_Julian_Day_Number
+    /**
+     * Returns the modified julian day. That is the number of days
+     * since the Gregorian date November 17, 1858.
      */
-    int Gregorian::mod_julian_day() const { 
-        return jdn;
+    int Date::mod_julian_day() const { 
+        return jdn - JDN_17_NOV_1858;
     }
 
     /**

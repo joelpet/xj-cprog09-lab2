@@ -9,10 +9,9 @@ namespace lab2 {
 
         protected:
             /**
-             * Number of full days since January 1, 
-             * 4713 BC Greenwich noon.
+             * Full days since January 1, 4713 BC Greenwich noon.
              */
-            int jdn;
+            long jdn;
 
             virtual long ymd_to_jdn(int y, int m, int d, bool julian) = 0;
             virtual long jdn_to_ymd(long jdn, int & y, int & m, int & d, bool julian) = 0;
@@ -51,7 +50,7 @@ namespace lab2 {
             Date & operator+=(int);
             Date & operator-=(int);
 
-            virtual long mod_julian_day() const;
+            long mod_julian_day() const;
     };
 
     std::ostream & operator<<(std::ostream & os, const Date &);
