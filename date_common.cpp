@@ -73,6 +73,10 @@ namespace lab2 {
      */
     int DateCommon::add_year(signed int n = 1) { 
         t_year += n;
+        if (!is_valid(t_year, t_month, t_day)) {
+            // 29 feb
+            t_day = 28;
+        }
         return t_year;
     }
 
