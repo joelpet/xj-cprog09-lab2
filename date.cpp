@@ -24,9 +24,9 @@ namespace lab2 {
 
         // Get local date
         struct tm * t = gmtime(&mytime);
-        year  = t->tm_year + 1900;
-        month = t->tm_mon + 1; // 1-indexed 
-        day   = t->tm_mday; // 1-indexed
+        int year  = t->tm_year + 1900;
+        int month = t->tm_mon + 1; // 1-indexed 
+        int day   = t->tm_mday; // 1-indexed
 
         jdn = ymd_to_jdn(year, month, day);
 
