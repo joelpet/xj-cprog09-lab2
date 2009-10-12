@@ -20,6 +20,10 @@ namespace lab2 {
         return year() % 4 == 0;
     }
 
+    bool Julian::leap_year(int y) const {
+        return y % 4 == 0;
+    }
+
     /**
      * Returns the JDN for the specified Julian date.
      *

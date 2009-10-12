@@ -16,12 +16,16 @@ namespace lab2 {
      * exactly divisible by 400 are still leap years. For example, the year
      * 1900 is not a leap year; the year 2000 is a leap year.
      */
-    bool Gregorian::leap_year() const { 
-        int year = this->year();
+    bool Gregorian::leap_year(int year) const { 
+        // int year = this->year();
         if (year % 400) return true; 
         if (year % 100) return false; 
         if (year % 4) return true; 
         return false;
+    }
+
+    bool Gregorian::leap_year() const {
+        return leap_year(this->year());
     }
 
     /**

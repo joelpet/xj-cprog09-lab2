@@ -122,8 +122,9 @@ namespace lab2 {
 
     bool DateCommon::is_valid(int year, int month, int day) const {
         if (day > daysPerMonth[month]) return false;
-        if (leap_year() && month == 2 && day > daysPerMonth[month]+1) return false;
+        if (leap_year(year) && month == 2 && day > daysPerMonth[month]+1) return false;
         if (month < 1 || month > 12 || day < 1) return false;
+        return true;
     }
 
     /** 
