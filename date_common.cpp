@@ -1,6 +1,8 @@
 #include "date_common.h"
 #include "kattistime.h"
 
+#include <iostream>
+
 namespace lab2 {
     const std::string nameOfDay[] = {"", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
     const std::string nameOfMonth[] = {"", "january", "februrary", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
@@ -113,6 +115,8 @@ namespace lab2 {
      * Returns the week day, where 1 means Monday.
      */
     int DateCommon::week_day() const {
+        if (jdn < 0)
+            return (-jdn) % 7 +1;
         return jdn % 7 + 1;
     }
 
@@ -178,6 +182,8 @@ namespace lab2 {
      * as provided by week_day()
      */
     std::string DateCommon::week_day_name() const {
+        std::cout << week_day() << std::endl;
+        std::cout << jdn << std::endl;
         return nameOfDay[week_day()];
     }
 
