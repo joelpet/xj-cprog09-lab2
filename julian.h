@@ -6,6 +6,10 @@ namespace lab2 {
 
         bool leap_year() const;
 
+        virtual long ymd_to_jdn(int y, int m, int d);
+        virtual long jdn_to_ymd(long jdn, int & y, int & m, int & d);
+
+
         public:
             Julian();
             Julian(int, int, int);

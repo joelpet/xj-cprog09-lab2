@@ -23,8 +23,6 @@ namespace lab2 {
         t_year  = t->tm_year + 1900;
         t_month = t->tm_mon + 1; // 1-indexed 
         t_day   = t->tm_mday; // 1-indexed
-
-        std::cout << "Date()" << std::endl;
     }
 
     /**
@@ -163,6 +161,20 @@ namespace lab2 {
         }
 
         return *this;
+    }
+
+/**
+     * Returns the Julian day number, which is the interval of time in days
+     * since January 1, 4713 BC Greenwich noon.
+     *
+     * This method is valid for all Gregorian calendar dates after November 23,
+     * which indeed covers all years from 1858 to 2558.
+     *
+     * http://en.wikipedia.org/wiki/Julian_day
+     * #Converting_between_Gregorian_calendar_date_and_Julian_Day_Number
+     */
+    int Gregorian::mod_julian_day() const { 
+        return jdn;
     }
 
     /**

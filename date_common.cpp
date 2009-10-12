@@ -159,5 +159,4 @@ namespace lab2 {
         return nameOfMonth[t_month];
     }
 
-
 }
