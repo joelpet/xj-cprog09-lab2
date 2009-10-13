@@ -109,14 +109,31 @@ namespace lab2 {
         int old_day = day(); 
 
         if (n > 0) {
-            // add just enough days to wrap month
-            add_day(days_this_month() - day() + 1);
-            // add up to old_day or as high as possible
-            int i = 1;
-            while (old_day - i >= days_this_month()) {
-                i++;
+            int y, m, d;
+            jdn_to_ymd(jdn, y, m, d);
+
+            if (m == 12) {
+                m = 1;
+                y++;
             }
-            add_day(old_day - i);
+            else {
+                m++;
+            }
+
+            if (!is_valid(y,m,d)) {
+                add_day(30);
+            }
+            else {
+                jdn = ymd_to_jdn(y, m, d);
+            }
+            // // add just enough days to wrap month
+            // add_day(days_this_month() - day() + 1);
+            // // add up to old_day or as high as possible
+            // int i = 1;
+            // while (old_day - i >= days_this_month()) {
+                // i++;
+            // }
+            // add_day(old_day - i);
         } else {
             int y, m, d;        
 
