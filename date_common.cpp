@@ -177,9 +177,9 @@ namespace lab2 {
     }
 
     bool DateCommon::is_valid(int year, int month, int day) const {
+        if (month < 1 || month > 12 || day < 1) return false;
         if (leap_year(year) && month == 2 && day == 29) return true;
         else if (day > daysPerMonth[month]) return false;
-        if (month < 1 || month > 12 || day < 1) return false;
         return true;
     }
 
@@ -239,6 +239,8 @@ namespace lab2 {
      * as provided by week_day()
      */
     std::string DateCommon::week_day_name() const {
+        if (week_day() > 7)
+            throw std::out_of_range("week_day > 7");
         return nameOfDay[week_day()];
     }
 
@@ -246,7 +248,10 @@ namespace lab2 {
      * Returns the name of the current month
      */
     std::string DateCommon::month_name() const {
-        return nameOfMonth[month()];
+        int m = month();
+        if (m < 0 || m > 12)
+            throw std::out_of_range("0 > month() < 12");
+        return nameOfMonth[m];
     }
 
 }
