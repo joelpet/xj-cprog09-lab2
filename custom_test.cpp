@@ -195,6 +195,32 @@ int main() {
     j11.add_month();
     assert(j11 == Julian(2028, 3, 1));
 
+    /*
+     * Error in operation add_month: "L1270:D24;2094-10-01" should have been "L1270:D24;2094-09-28"
+     * We think we've got a history for this date:
+     * gregorian 2088 2 29 @100
+     * add_month 42
+     * add_month 24
+     * print 24
+     * add_month -25
+     * add_month 24
+     * print 24
+     * add_month 27
+     * add_month 24
+     * print 24
+     * add_month 35
+     */
+    Gregorian g11(2088, 2, 29);
+    g11.add_month(42);
+    g11.add_month(24);
+    g11.add_month(-25);
+    g11.add_month(24);
+    g11.add_month(27);
+    g11.add_month(24);
+    g11.add_month(35);
+    assert(g11 == Gregorian(2094, 9, 28));
+
+
     // add_year
 
 
