@@ -121,9 +121,12 @@ namespace lab2 {
             }
 
             if (!is_valid(y,m,d)) {
+                // std::cout << "!is_valid" << std::endl;
+                // std::cout << y << m << d <<std::endl;
                 add_day(30);
             }
             else {
+                // std::cout << "valid" << std::endl;
                 jdn = ymd_to_jdn(y, m, d);
             }
             // // add just enough days to wrap month
@@ -177,7 +180,7 @@ namespace lab2 {
     }
 
     bool DateCommon::is_valid(int year, int month, int day) const {
-        if (jdn == 2485572 || jdn == 2485573) return false;
+        // if (jdn == 2485572 || jdn == 2485573) return false;
         if (month < 1 || month > 12 || day < 1) return false;
         if (leap_year(year) && month == 2 && day == 29) return true;
         if (day > daysPerMonth[month]) return false;

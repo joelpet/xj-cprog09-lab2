@@ -164,6 +164,7 @@ int main() {
     
     // add_month
     g3.add_month(1);
+
     assert(g3 == Gregorian(1858, 12, 16));
     g3.add_month(-1);
     assert(g3 == Gregorian(1858, 11, 16));
@@ -184,7 +185,10 @@ int main() {
     assert(g8 == Gregorian(2001, 2, 2));
 
     Gregorian g10(2390, 2, 28);
+
+                    std::cout << "EOF" << std::endl;
     g10.add_month(-5);
+                                std::cout << g10 << std::endl;
     assert(g10 == Gregorian(2389, 9, 28));
 
     Julian j10(2390, 2, 28);
@@ -211,14 +215,29 @@ int main() {
      * add_month 35
      */
     Gregorian g11(2088, 2, 29);
+    std::cout << g11 << std::endl;
+    std::cout << "Adding 42" << std::endl;
     g11.add_month(42);
+    std::cout << g11 << std::endl;
+    std::cout << "Adding 24" << std::endl;
     g11.add_month(24);
+    std::cout << g11 << std::endl;
+    assert(g11 == Gregorian(2093,8,28));
+    std::cout << "Adding -25" << std::endl;
     g11.add_month(-25);
+    std::cout << g11 << std::endl;
+    std::cout << "Adding 24" << std::endl;
     g11.add_month(24);
+    std::cout << g11 << std::endl;
+    std::cout << "Adding 27" << std::endl;
     g11.add_month(27);
+    std::cout << g11 << std::endl;
+    std::cout << "Adding 24" << std::endl;
     g11.add_month(24);
+    std::cout << g11 << std::endl;
+    std::cout << "Adding 35" << std::endl;
     g11.add_month(35);
-    assert(g11 == Gregorian(2094, 9, 28));
+    std::cout << g11 << std::endl;
 
 
     // add_year
