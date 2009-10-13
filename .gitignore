@@ -3,6 +3,7 @@ a.out
 *.h.gch
 *.~
 *.swp
+tempfile
 .cdtproject
 .project
 .settings

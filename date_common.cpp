@@ -147,6 +147,13 @@ namespace lab2 {
         return jdn % 7 + 1;
     }
 
+    /**
+     * Check if the current date is valid
+     */
+    bool DateCommon::is_valid() const {
+        return is_valid(year(), month(), day());
+    }
+
     bool DateCommon::is_valid(int year, int month, int day) const {
         if (leap_year(year) && month == 2 && day == 29) return true;
         else if (day > daysPerMonth[month]) return false;

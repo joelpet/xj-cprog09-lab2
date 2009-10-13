@@ -175,6 +175,11 @@ int main() {
     Gregorian g10(2390, 2, 28);
     g10.add_month(-5);
     assert(g10 == Gregorian(2389, 9, 28));
+
+    Julian j10(2390, 2, 28);
+    j10.add_month(-5);
+    std::cout << j10 << std::endl;
+    assert(j10 == Julian(2389, 9, 28));
     // add_year
 
 

@@ -53,6 +53,7 @@ namespace lab2 {
         protected:
             virtual bool leap_year() const = 0;
             virtual bool leap_year(int) const = 0;
+            virtual bool is_valid() const;
             virtual bool is_valid(int, int, int) const;
     };
 

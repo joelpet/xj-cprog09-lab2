@@ -78,11 +78,14 @@ namespace lab2 {
      * @return A reference to this date
      */
     Date & Date::operator=(const Date & d) {
+        std::cout << "operator=" << d << std::endl;
         if (this == &d) {
             return *this;
         }
 
         jdn = d.get_jdn();
+
+        std::cout << "operator=2" << *this << std::endl;
 
         assert(*this - d == 0);
 
