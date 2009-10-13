@@ -150,8 +150,8 @@ namespace lab2 {
     bool DateCommon::is_valid(int year, int month, int day) const {
         std::cout << year << month << day << std::endl;
         std::cout << leap_year(year) << std::endl;
-        if (day > daysPerMonth[month]) return false;
-        if (leap_year(year) && month == 2 && day > 29) return false;
+        if (leap_year(year) && month == 2 && day == 29) return true;
+        else if (day > daysPerMonth[month]) return false;
         if (month < 1 || month > 12 || day < 1) return false;
         return true;
     }
