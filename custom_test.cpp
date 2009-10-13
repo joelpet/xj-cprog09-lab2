@@ -167,7 +167,7 @@ int main() {
     g6.add_month(-1);
     assert(g6 == Gregorian(2000, 9, 1));
     g7.add_month(-1);
-    assert(g7 == Gregorian(2000, 5, 31));
+    assert(g7 == Gregorian(2000, 5, 30));
     // unsure how to handle this case
     g8.add_month(-1);
     assert(g8 == Gregorian(2001, 2, 1));

@@ -118,19 +118,38 @@ namespace lab2 {
             }
             add_day(old_day - i);
         } else {
-            int dm = month(), dd = day();
-            // subtract just enough to wrap back
-            add_day(-day());
-            dm = month(), dd = day();
-            // go back to day 1
-            add_day(1-day());
-            dm = month(), dd = day();
-            // go forward to right day
-            if (on_last_day || old_day >= days_this_month()) {
-                add_day(days_this_month() - 1);
-            } else {
-                add_day(old_day - 1);
+
+            int y, m, d;        
+
+            jdn_to_ymd(jdn, y, m, d);
+
+            if (m == 1) {
+                m = 12;
+                y--;
             }
+            else {
+                m--;
+            }
+
+            if (!is_valid(y, m, d)) {
+                add_day(-30);
+            }
+            else {
+                jdn = ymd_to_jdn(y, m, d);
+            }
+
+            // subtract just enough to wrap back
+            // add_day(-day());
+            // dm = month(), dd = day();
+            // // go back to day 1
+            // add_day(1-day());
+            // dm = month(), dd = day();
+            // // go forward to right day
+            // if (on_last_day || old_day >= days_this_month()) {
+                // add_day(days_this_month() - 1);
+            // } else {
+                // add_day(old_day - 1);
+            // }
         }
 
         // rekursera
