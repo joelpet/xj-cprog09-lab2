@@ -1,3 +1,6 @@
+#ifndef JULIAN_H
+#define JULIAN_H
+
 #include "date_common.h"
 
 namespace lab2 {
@@ -17,3 +20,5 @@ namespace lab2 {
     };
 
 }
+
+#endif

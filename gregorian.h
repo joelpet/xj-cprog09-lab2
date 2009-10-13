@@ -1,5 +1,6 @@
 #ifndef GREGORIAN_H
 #define GREGORIAN_H
+
 #include "date_common.h"
 
 namespace lab2 {
