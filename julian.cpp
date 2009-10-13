@@ -1,12 +1,12 @@
 #include "julian.h"
 
-#include <iostream>
-
 namespace lab2 {
 
     Julian::Julian() {}
 
     Julian::Julian(int y, int m, int d) {
+        if (!is_valid(y, m, d)) 
+            throw std::out_of_range("Invalid date");
         jdn = ymd_to_jdn(y, m, d);
     }
     
@@ -18,6 +18,10 @@ namespace lab2 {
      */
     bool Julian::leap_year() const { 
         return year() % 4 == 0;
+    }
+
+    bool Julian::leap_year(int y) const {
+        return y % 4 == 0;
     }
 
     /**

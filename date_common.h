@@ -52,6 +52,7 @@ namespace lab2 {
             virtual std::string month_name() const;
         protected:
             virtual bool leap_year() const = 0;
+            virtual bool leap_year(int) const = 0;
             virtual bool is_valid(int, int, int) const;
     };
 

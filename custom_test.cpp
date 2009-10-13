@@ -16,27 +16,41 @@ int main() {
 
     // set up some test objects 
 
+    std::cout << "set up some test objects" << std::endl;
     Gregorian g1(1900, 1, 1);
+    std::cout << ".";
     Gregorian g2(1900, 1, 13);
+    std::cout << ".";
     Gregorian g3(1858, 11, 16);
+    std::cout << ".";
     Gregorian g4(1858, 11, 17);
+    std::cout << ".";
     Gregorian g5(1858, 11, 18);
     Gregorian g6(2000, 9, 1);
     Gregorian g7(2000, 5, 31);
     Gregorian g8(2001, 1, 31);
+    std::cout << ".";
     Gregorian gnow;
+    std::cout << "." << std::endl << "julian:" << std::endl;
 
     Julian j1(1899, 12, 20);
+    std::cout << ".";
     Julian j2(1900, 1, 1);
+    std::cout << ".";
     Julian j3(1858, 11, 4);
+    std::cout << ".";
     Julian j4(1858, 11, 5);
+    std::cout << ".";
     Julian j5(1858, 11, 6);
     Julian j6(2000, 9, 1);
     Julian j7(2000, 5, 31);
     Julian j8(2001, 1, 31);
+    std::cout << ".";
     Julian jnow;
+    std::cout << ".";
 
     // operator==
+    std::cout << "operator==" << std::endl;
     assert(g1 == g1);
     assert(g4 == g4);
     assert(j1 == j1);
@@ -49,24 +63,28 @@ int main() {
     assert(gnow == jnow);
 
     // operator!=
+    std::cout << "operator!=" << std::endl;
     assert(g1 != g2);
     assert(j1 != j2);
     assert(j3 != g4);
     assert(j4 != j5);
 
     // operator<
+    std::cout << "operator<" << std::endl;
     assert(g3 < j4);
     assert(g4 < j5);
     assert(j3 < g4);
     assert(j4 < g5);
 
     // operator>
+    std::cout << "operator>" << std::endl;
     assert(g4 > j3);
     assert(g5 > j4);
     assert(j4 > g3);
     assert(j5 > g4);
 
     // operator-
+    std::cout << "operator-" << std::endl;
     assert(g5 - j3 == 2);
     assert(j3 - g5 == -2);
     assert(j4 - g4 == 0);
@@ -82,6 +100,7 @@ int main() {
     // operator-=
 
     // year()
+    std::cout << "year()" << std::endl;
     assert(g1.year() == 1900);
     assert(g2.year() == 1900);
     assert(g3.year() == 1858);
@@ -97,6 +116,7 @@ int main() {
     assert(jnow.year() == 2009);
 
     // month()
+    std::cout << "month()" << std::endl;
     assert(g1.month() == 1);
     assert(g2.month() == 1);
     assert(g3.month() == 11);
@@ -110,6 +130,7 @@ int main() {
     assert(j5.month() == 11);
 
     // day()
+    std::cout << "day()" << std::endl;
     assert(g1.day() == 1);
     assert(g2.day() == 13);
     assert(g3.day() == 16);

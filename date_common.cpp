@@ -1,7 +1,7 @@
 #include "date_common.h"
 #include "kattistime.h"
 
-#include <algorithm>
+#include <iostream>
 
 namespace lab2 {
     const std::string nameOfDay[] = {"", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
@@ -142,13 +142,16 @@ namespace lab2 {
      * Returns the week day, where 1 means Monday.
      */
     int DateCommon::week_day() const {
+        if (jdn < 0)
+            return (-jdn) % 7 +1;
         return jdn % 7 + 1;
     }
 
     bool DateCommon::is_valid(int year, int month, int day) const {
         if (day > daysPerMonth[month]) return false;
-        if (leap_year() && month == 2 && day > daysPerMonth[month]+1) return false;
+        if (leap_year(year) && month == 2 && day > daysPerMonth[month]+1) return false;
         if (month < 1 || month > 12 || day < 1) return false;
+        return true;
     }
 
     /** 
@@ -207,6 +210,8 @@ namespace lab2 {
      * as provided by week_day()
      */
     std::string DateCommon::week_day_name() const {
+        std::cout << week_day() << std::endl;
+        std::cout << jdn << std::endl;
         return nameOfDay[week_day()];
     }
 

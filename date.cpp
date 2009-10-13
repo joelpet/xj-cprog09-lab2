@@ -30,7 +30,7 @@ namespace lab2 {
      * @param datum the date to copy
      */
     Date::Date(const Date & datum) {
-        jdn = datum.mod_julian_day();
+        jdn = datum.get_jdn();
         std::cerr << "Date::Date(const Date & datum)" << std::endl;
     }
 
