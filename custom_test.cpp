@@ -45,6 +45,7 @@ int main() {
     Julian j6(2000, 9, 1);
     Julian j7(2000, 5, 31);
     Julian j8(2001, 1, 31);
+    Julian j9(1900, 2, 29);
     std::cout << ".";
     Julian jnow;
     std::cout << ".";
