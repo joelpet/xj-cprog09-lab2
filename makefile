@@ -30,4 +30,4 @@ submit22b: clean lab22b
 	./submit.py -f -p cprog09lab22b gregorian.cpp gregorian.h kattistime.cpp kattistime.h date.cpp date.h date_common.h date_common.cpp cprog09lab22b.cpp
 
 submit22c: clean lab22c
-	./submit.py -f -p cprog09lab22c gregorian.cpp gregorian.h julian.cpp julian.h kattistime.cpp kattistime.h date.cpp date.h date_common.h date_common.cpp cprog09lab22b.cpp
+	./submit.py -f -p cprog09lab22c gregorian.cpp gregorian.h julian.cpp julian.h kattistime.cpp kattistime.h date.cpp date.h date_common.h date_common.cpp cprog09lab22c.cpp
