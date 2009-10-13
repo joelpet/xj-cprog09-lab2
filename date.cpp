@@ -31,7 +31,6 @@ namespace lab2 {
      */
     Date::Date(const Date & datum) {
         jdn = datum.get_jdn();
-        std::cerr << "Date::Date(const Date & datum)" << std::endl;
     }
 
     long Date::get_jdn() const {

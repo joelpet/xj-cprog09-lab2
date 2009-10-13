@@ -50,6 +50,7 @@ int main() {
     Julian jnow;
     std::cout << ".";
 
+
     // operator==
     std::cout << "operator==" << std::endl;
     assert(g1 == g1);
@@ -171,6 +172,9 @@ int main() {
     g8.add_month(-1);
     assert(g8 == Gregorian(2001, 2, 1));
 
+    Gregorian g10(2390, 2, 28);
+    g10.add_month(-5);
+    assert(g10 == Gregorian(2389, 9, 28));
     // add_year
 
 
