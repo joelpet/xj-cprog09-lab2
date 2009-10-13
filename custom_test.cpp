@@ -178,8 +178,12 @@ int main() {
 
     Julian j10(2390, 2, 28);
     j10.add_month(-5);
-    std::cout << j10 << std::endl;
     assert(j10 == Julian(2389, 9, 28));
+
+    Julian j11(2028, 1, 31);
+    j11.add_month();
+    assert(j11 == Julian(2028, 3, 1));
+
     // add_year
 
 

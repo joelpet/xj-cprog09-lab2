@@ -92,13 +92,14 @@ namespace lab2 {
         return day();
     }
 
+
     /**
      * Adds a number of months to our current date and returns the 
      * new month.
      * 
      * @param n The number of months to add to the calendar
      */
-    int DateCommon::add_month(int n = 1) {
+    int DateCommon::add_month(int n) {
         // om n == 0, return
         if (n == 0) {
             return month();
@@ -183,7 +184,7 @@ namespace lab2 {
     /** 
      * Increases the year with n
      */
-    int DateCommon::add_year(signed int n = 1) { 
+    int DateCommon::add_year(signed int n ) { 
         int year;
         int month;
         int day;

@@ -35,8 +35,8 @@ namespace lab2 {
             virtual std::string month_name() const = 0;
 
             virtual int add_day(int = 1) = 0;
-            virtual int add_month(int = 1) = 0;
-            virtual int add_year(int = 1) = 0; 
+            virtual int add_month(int n = 1) = 0;
+            virtual int add_year(int n = 1) = 0; 
 
             bool operator==(const Date & d) const;
             bool operator!=(const Date & d) const;

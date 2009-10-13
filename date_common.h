@@ -42,8 +42,8 @@ namespace lab2 {
             virtual int month() const;
             virtual int day() const;
             virtual int add_day(int);
-            virtual int add_month(int);
-            virtual int add_year(int); 
+            virtual int add_month(int = 1);
+            virtual int add_year(int = 1); 
             virtual int week_day() const;
             virtual int days_per_week() const;
             virtual int days_this_month() const;
