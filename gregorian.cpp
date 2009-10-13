@@ -4,7 +4,13 @@ namespace lab2 {
 
     Gregorian::Gregorian() {}
 
-    Gregorian::Gregorian(int y, int m, int d) : DateCommon(y, m, d) {}
+    Gregorian::Gregorian(int y, int m, int d) {
+        if (!is_valid(y, m, d)) 
+            throw std::out_of_range("Invalid date");
+        jdn = ymd_to_jdn(y, m, d);
+    }
+
+    // Gregorian::Gregorian(int y, int m, int d) : DateCommon(y, m, d) {}
 
     Gregorian::Gregorian(const Date & datum) : DateCommon(datum) {}
 

@@ -3,6 +3,7 @@
 #define DATE_H
 
 #include <ostream>
+#include <stdexcept>
 
 namespace lab2 {
     class Date {

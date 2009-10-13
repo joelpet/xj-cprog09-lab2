@@ -1,4 +1,4 @@
-all: lab22a
+all: lab22b
 
 
 datetest:
@@ -19,4 +19,4 @@ lab23:
 	g++ date.h date.cpp date_common.h date_common.cpp gregorian.h gregorian.cpp julian.h julian.cpp kattistime.h kattistime.cpp cprog09lab23.cpp
 
 run:
-	./a.out < lab22a.in
+	./a.out
