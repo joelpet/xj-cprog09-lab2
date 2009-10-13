@@ -5,7 +5,7 @@
 
 namespace lab2 {
     const std::string nameOfDay[] = {"", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"};
-    const std::string nameOfMonth[] = {"", "january", "februrary", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
+    const std::string nameOfMonth[] = {"", "january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"};
 
     const int daysPerMonth[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
