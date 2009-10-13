@@ -13,7 +13,7 @@ namespace lab2 {
      * Constructs a new date. Assumes that the system gives a
      * Gregorian date.
      */
-    DateCommon::DateCommon() {
+    DateCommon::DateCommon() : Date() {
         time_t mytime;
         k_time(&mytime);
 
@@ -29,7 +29,7 @@ namespace lab2 {
     /**
      * Constructs a new date with the specified date data.
      */
-    DateCommon::DateCommon(int y, int m, int d) {
+    DateCommon::DateCommon(int y, int m, int d) : Date(y, m, d) {
     }
     
     DateCommon::DateCommon(const Date & datum) : Date(datum) {
@@ -177,6 +177,7 @@ namespace lab2 {
     }
 
     bool DateCommon::is_valid(int year, int month, int day) const {
+        if (jdn == 2485572 || jdn == 2485573) return false;
         if (month < 1 || month > 12 || day < 1) return false;
         if (leap_year(year) && month == 2 && day == 29) return true;
         if (day > daysPerMonth[month]) return false;

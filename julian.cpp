@@ -2,9 +2,10 @@
 
 namespace lab2 {
 
-    Julian::Julian() {}
+    Julian::Julian() {
+    }
 
-    Julian::Julian(int y, int m, int d) {
+    Julian::Julian(int y, int m, int d) : DateCommon(y, m, d) {
         if (!is_valid(y, m, d)) {
             throw std::out_of_range("Invalid date");
         }
@@ -19,7 +20,7 @@ namespace lab2 {
      * the year is evenly divisible by four.
      */
     bool Julian::leap_year() const { 
-        return year() % 4 == 0;
+        return leap_year(year());
     }
 
     bool Julian::leap_year(int y) const {

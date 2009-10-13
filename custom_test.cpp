@@ -7,7 +7,7 @@
 int main() {
     using namespace lab2;
 
-    std::cout << "Starting custom tests ..." << std::endl;
+    std::cout << "Starting custom tests" << std::endl;
 
     // set up kattistime
     time_t tp;
@@ -15,8 +15,8 @@ int main() {
     set_k_time(tp);
 
     // set up some test objects 
+    std::cout << "Setting up Gregorian test objects ";
 
-    std::cout << "set up some test objects" << std::endl;
     Gregorian g1(1900, 1, 1);
     std::cout << ".";
     Gregorian g2(1900, 1, 13);
@@ -26,12 +26,19 @@ int main() {
     Gregorian g4(1858, 11, 17);
     std::cout << ".";
     Gregorian g5(1858, 11, 18);
+    std::cout << ".";
     Gregorian g6(2000, 9, 1);
+    std::cout << ".";
     Gregorian g7(2000, 5, 31);
+    std::cout << ".";
     Gregorian g8(2001, 1, 31);
     std::cout << ".";
+    Gregorian g9(2093, 3, 1);
+    std::cout << ".";
     Gregorian gnow;
-    std::cout << "." << std::endl << "julian:" << std::endl;
+    std::cout << "." << std::endl;
+
+    std::cout << "Setting up Julian test objects ";
 
     Julian j1(1899, 12, 20);
     std::cout << ".";
@@ -42,13 +49,17 @@ int main() {
     Julian j4(1858, 11, 5);
     std::cout << ".";
     Julian j5(1858, 11, 6);
+    std::cout << ".";
     Julian j6(2000, 9, 1);
+    std::cout << ".";
     Julian j7(2000, 5, 31);
+    std::cout << ".";
     Julian j8(2001, 1, 31);
+    std::cout << ".";
     Julian j9(1900, 2, 29);
     std::cout << ".";
     Julian jnow;
-    std::cout << ".";
+    std::cout << "." << std::endl;
 
 
     // operator==

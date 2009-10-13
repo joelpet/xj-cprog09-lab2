@@ -5,7 +5,7 @@ namespace lab2 {
     Gregorian::Gregorian() {
     }
 
-    Gregorian::Gregorian(int y, int m, int d) {
+    Gregorian::Gregorian(int y, int m, int d) : DateCommon(y, m, d) {
         if (!is_valid(y, m, d)) {
             throw std::out_of_range("Invalid date");
         }
@@ -24,15 +24,14 @@ namespace lab2 {
      * 1900 is not a leap year; the year 2000 is a leap year.
      */
     bool Gregorian::leap_year(int year) const { 
-        // int year = this->year();
-        if (year % 400) return true; 
-        if (year % 100) return false; 
-        if (year % 4) return true; 
+        if (year % 400 == 0) return true; 
+        if (year % 100 == 0) return false; 
+        if (year % 4 == 0) return true; 
         return false;
     }
 
     bool Gregorian::leap_year() const {
-        return leap_year(this->year());
+        return leap_year(year());
     }
 
     /**
