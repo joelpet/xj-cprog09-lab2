@@ -30,6 +30,9 @@ namespace lab2 {
      * @param datum the date to copy
      */
     Date::Date(const Date & datum) {
+        if (this == &datum) {
+            return;
+        }
         jdn = datum.get_jdn();
         std::cerr << "Date::Date(const Date & datum)" << std::endl;
     }
