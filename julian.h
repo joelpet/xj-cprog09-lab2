@@ -7,8 +7,8 @@ namespace lab2 {
 
     class Julian : public DateCommon {
 
-        bool leap_year() const;
-        bool leap_year(int) const;
+        virtual bool leap_year() const;
+        virtual bool leap_year(int) const;
 
         virtual long ymd_to_jdn(int y, int m, int d) const;
         virtual void jdn_to_ymd(long jdn, int & y, int & m, int & d) const;

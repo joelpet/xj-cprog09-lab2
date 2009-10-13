@@ -1,5 +1,7 @@
-all: lab22b
+all: clean lab22b
 
+clean:
+	rm -f *.h.gch a.out
 
 datetest:
 	g++ date.h date.cpp date_common.h date_common.cpp gregorian.h gregorian.cpp julian.h julian.cpp kattistime.h kattistime.cpp datetest.cpp

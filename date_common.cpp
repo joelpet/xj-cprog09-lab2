@@ -30,10 +30,10 @@ namespace lab2 {
      * Constructs a new date with the specified date data.
      */
     DateCommon::DateCommon(int y, int m, int d) {
-        init(y, m, d);
     }
     
-    DateCommon::DateCommon(const Date & datum) : Date(datum) {}
+    DateCommon::DateCommon(const Date & datum) : Date(datum) {
+    }
 
     /**
      * Initiates this date by calculating the JDN from the assumed
@@ -106,7 +106,7 @@ namespace lab2 {
         }
 
         // record current day
-        int old_day = day(); 
+        //int old_day = day(); 
 
         if (n > 0) {
             int y, m, d;

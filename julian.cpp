@@ -5,12 +5,14 @@ namespace lab2 {
     Julian::Julian() {}
 
     Julian::Julian(int y, int m, int d) {
-        if (!is_valid(y, m, d)) 
+        if (!is_valid(y, m, d)) {
             throw std::out_of_range("Invalid date");
+        }
         jdn = ymd_to_jdn(y, m, d);
     }
     
-    Julian::Julian(const Date & datum) : DateCommon(datum) {}
+    Julian::Julian(const Date & datum) : DateCommon(datum) {
+    }
 
     /** 
      * Returns true if the current year is a leap year. That is, if

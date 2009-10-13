@@ -2,17 +2,18 @@
 
 namespace lab2 {
 
-    Gregorian::Gregorian() {}
+    Gregorian::Gregorian() {
+    }
 
     Gregorian::Gregorian(int y, int m, int d) {
-        if (!is_valid(y, m, d)) 
+        if (!is_valid(y, m, d)) {
             throw std::out_of_range("Invalid date");
+        }
         jdn = ymd_to_jdn(y, m, d);
     }
 
-    // Gregorian::Gregorian(int y, int m, int d) : DateCommon(y, m, d) {}
-
-    Gregorian::Gregorian(const Date & datum) : DateCommon(datum) {}
+    Gregorian::Gregorian(const Date & datum) : DateCommon(datum) {
+    }
 
     /** 
      * Returns true if the current year is a leap year
@@ -36,6 +37,8 @@ namespace lab2 {
 
     /**
      * Returns the JDN for the specified Gregorian date.
+     *
+     * @link http://www.cs.umu.se/~isak/Snippets/jdn.c
      */
     long Gregorian::ymd_to_jdn(int y, int m, int d) const {
         long jdn;
@@ -55,6 +58,8 @@ namespace lab2 {
     /**
      * Writes the Gregorian date's year, month and day to the given
      * integers from the specified JDN.
+     *
+     * @link http://www.cs.umu.se/~isak/Snippets/jdn.c
      */
     void Gregorian::jdn_to_ymd(long jdn, int & yy, int & mm, int & dd) const {
         long x, z, m, d, y;
