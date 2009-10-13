@@ -210,8 +210,6 @@ namespace lab2 {
      * as provided by week_day()
      */
     std::string DateCommon::week_day_name() const {
-        std::cout << week_day() << std::endl;
-        std::cout << jdn << std::endl;
         return nameOfDay[week_day()];
     }
 
