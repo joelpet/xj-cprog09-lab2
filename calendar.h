@@ -106,15 +106,26 @@ namespace lab2 {
                     return true;
                 }
 
+                bool remove_event(const std::string event) {
+                    int y = date.year(), m = date.month(), d = date.day();
+                    return remove_event(event, d, m, y);
+                }
+
+                bool remove_event(const std::string event, int d) {
+                    int y = date.year(), m = date.month();
+                    return remove_event(event, d, m, y);
+                }
+
+                bool remove_event(const std::string event, int d, int m) {
+                    int y = date.year();
+                    return remove_event(event, d, m, y);
+                }
+
                 /**
                  * Same as add_event
                  * If unable to remove, return false
                  */
-                bool remove_event(std::string event, int d = -17, int m = -17, int y = -17) {
-                    if (d == -17) d = date.day();
-                    if (m == -17) m = date.month();
-                    if (y == -17) y = date.year();
-
+                bool remove_event(const std::string event, int d, int m, int y) {
                     try {
                         return remove_event(event, T(y, m, d));
                     }

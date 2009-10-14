@@ -8,6 +8,10 @@
 int main() {
     using namespace lab2;
 
+    time_t tp;
+    time(&tp);    
+    set_k_time(tp);
+
     std::cout << "Starting custom tests" << std::endl;
 
     std::cout << "----------------------------------------" << std::endl;
