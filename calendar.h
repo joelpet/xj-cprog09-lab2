@@ -183,9 +183,14 @@ namespace lab2 {
      *  2000-12-24 : Julafton
      *  2001-01-01 : Nyårsfrukost
      */
-    template <class T>
-        std::ostream & operator<<(std::ostream & os, const Calendar<T> & cal) {
-            std::cout << "OPUTUPT" << std::endl;
+    template <typename T>
+        std::ostream & operator<<(std::ostream & os, const Calendar<T> & c) {
+            typename std::multimap<T, std::string>::const_iterator it;
+            typename std::multimap<T, std::string> cal = c.cal;
+
+            for (it = cal.begin(); it != cal.end(); it++) {
+                std::cout << it->first << " : " << it->second << std::endl;
+            }
         }
 
 }

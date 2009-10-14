@@ -8,6 +8,12 @@
 int main() {
     using namespace lab2;
 
+    // set up kattistime
+    time_t tp;
+    time(&tp);    
+    set_k_time(tp);
+
+
     std::cout << "Starting custom tests" << std::endl;
     // set up kattistime
     time_t tp;
