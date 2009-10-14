@@ -106,21 +106,38 @@ namespace lab2 {
                     return true;
                 }
 
-                /**
-                 * Use the current date
-                 */
-                bool remove_event(std::string event) {
-                    return remove_event(event, date);
+                bool remove_event(const std::string event) {
+                    try {
+                        return remove_event(event, T(date.year(), date.month(), date.day()));
+                    }
+                    catch (std::out_of_range &e ) {
+                        return false;
+                    }
+                }
+
+                bool remove_event(const std::string event, int d) {
+                    try {
+                        return remove_event(event, T(date.year(), date.month(), d));
+                    }
+                    catch (std::out_of_range &e ) {
+                        return false;
+                    }
+                }
+
+                bool remove_event(const std::string event, int d, int m) {
+                    try {
+                        return remove_event(event, T(date.year(), m, d));
+                    }
+                    catch (std::out_of_range &e ) {
+                        return false;
+                    }
                 }
 
                 /**
                  * Same as add_event
                  * If unable to remove, return false
                  */
-                bool remove_event(std::string event, int d, int m = 0, int y = 0) {
-                    if (m == 0) m = date.month();
-                    if (y == 0) y = date.year();
-
+                bool remove_event(const std::string event, int d, int m, int y) {
                     try {
                         return remove_event(event, T(y, m, d));
                     }
@@ -129,7 +146,7 @@ namespace lab2 {
                     }
                 }
 
-                bool remove_event(std::string event, T date) {
+                bool remove_event(const std::string event, T date) {
                     typename std::multimap<T,std::string>::iterator it;
                     std::pair<typename std::multimap<T, std::string>::iterator, typename std::multimap<T, std::string>::iterator> ret;
 
