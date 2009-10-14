@@ -28,11 +28,10 @@ namespace lab2 {
                     Calendar(const Calendar<Q> & c) {
                         this->date = c.date;
 
-                        typename std::multimap<Q,std::string>::iterator it;
+                        typename std::multimap<Q,std::string>::const_iterator it;
                         // std::pair<typename std::multimap<T, std::string>::iterator, typename std::multimap<T, std::string>::iterator> ret;
 
 
-                        c.cal.begin();
 
                         for (it = c.cal.begin(); it != c.cal.end(); ++it) {
                             cal.insert(std::pair<T, std::string>(T(it->first), it->second));
