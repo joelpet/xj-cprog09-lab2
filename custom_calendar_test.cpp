@@ -15,6 +15,12 @@ int main() {
 
 
     std::cout << "Starting custom tests" << std::endl;
+    // set up kattistime
+    time_t tp;
+    time(&tp);    
+    set_k_time(tp);
+
+
 
     std::cout << "----------------------------------------" << std::endl;
     Calendar<Gregorian> cal;
@@ -71,6 +77,16 @@ int main() {
 
     // operator-=
 
+    // add_event
+
+    Calendar<Gregorian> g1;
+    assert(g1.add_event("nhpsCSY", 14, 9, 2100) == true);
+
+    // remove_event
+
+    g1.set_date(2100, 2, 6);
+    g1.add_event("JXLkblP",  22, 9);
+    assert(g1.remove_event("JXLkblP", 22, 9, 2100) == true);
 
     std::cout << "Custom tests successfully run!" << std::endl;
 

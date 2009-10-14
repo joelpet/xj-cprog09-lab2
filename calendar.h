@@ -27,12 +27,8 @@ namespace lab2 {
                 template <class Q>
                     Calendar(const Calendar<Q> & c) {
                         this->date = c.date;
-
                         typename std::multimap<Q,std::string>::const_iterator it;
-                        // std::pair<typename std::multimap<T, std::string>::iterator, typename std::multimap<T, std::string>::iterator> ret;
-
-
-
+                        
                         for (it = c.cal.begin(); it != c.cal.end(); ++it) {
                             cal.insert(std::pair<T, std::string>(T(it->first), it->second));
                         }
@@ -59,8 +55,12 @@ namespace lab2 {
                     return add_event(str, date);
                 }
 
-                bool add_event(std::string str, int a, int b = 5) {
-                    return add_event(str);
+                bool add_event(std::string event, int d) {
+                    return add_event(event, T(date.year(), date.month(), d));
+                }
+
+                bool add_event(std::string event, int d, int m) {
+                    return add_event(event, T(date.year(), m, d));
                 }
 
                 /**
@@ -68,11 +68,12 @@ namespace lab2 {
                  * if event already exists on the date, return false, nothing
                  * should be added
                  */
-                bool add_event(std::string event, int y, int m, int d) {
+                bool add_event(std::string event, int d, int m, int y) {
                     try {
                         return add_event(event, T(y,m,d));
                     }
                     catch (std::out_of_range &e) {
+                        std::cerr << "out of range" << std::endl;
                         return false;
                     }
                 }
@@ -83,11 +84,14 @@ namespace lab2 {
 
                     ret = cal.equal_range(date);
                     for (it = ret.first; it != ret.second; ++it) {
-                        if (event == (*it).second)
+                        if (event == (*it).second) {
+                            std::cerr << "already exists" << std::endl;
                             return false;
+                        }
                     }
                     // We didnt find it
                     cal.insert(std::pair<T, std::string>(date, event));
+                    return true;
                 }
 
 
@@ -100,15 +104,19 @@ namespace lab2 {
                     return remove_event(event, date);
                 }
 
-                bool remove_event(std::string event, int a, int b = 5) {
-                    return remove_event(event);
+                bool remove_event(std::string event, int d) {
+                    return remove_event(event, T(date.year(), date.month(), d));
+                }
+
+                bool remove_event(std::string event, int d, int m) {
+                    return remove_event(event, T(date.year(), m, d));
                 }
 
                 /**
                  * Same as add_event
                  * If unable to remove, return false
                  */
-                bool remove_event(std::string event, int y, int m, int d) {
+                bool remove_event(std::string event, int d, int m, int y) {
                     try {
                         return remove_event(event, T(y,m,d));
                     }
@@ -129,20 +137,6 @@ namespace lab2 {
                         }
                     }
                 }
-
-// 
-                // template <class Q>
-                // Calendar<T> & operator=(const Calendar<Q> & d) {
-                    // if (this == &d) {
-                        // return *this;
-                    // }
-// 
-                    // this->date = d.date;
-                    // this->cal = d.cal;
-// 
-                    // return *this;
-                // }
-
 
         };
     /**
