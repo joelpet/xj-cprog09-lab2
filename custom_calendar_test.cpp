@@ -9,12 +9,6 @@ int main() {
     using namespace lab2;
 
     std::cout << "Starting custom tests" << std::endl;
-    // set up kattistime
-    time_t tp;
-    time(&tp);    
-    set_k_time(tp);
-
-
 
     std::cout << "----------------------------------------" << std::endl;
     Calendar<Gregorian> cal;
