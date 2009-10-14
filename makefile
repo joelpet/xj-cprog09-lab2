@@ -1,6 +1,7 @@
-all: clean lab22c
+all: clean lab23
 
 clean:
+	clear
 	rm -f *.h.gch a.out
 
 datetest:
@@ -23,7 +24,7 @@ lab22b:
 lab22c:
 	g++ -g -Wall cprog09lab22c.cpp date.h date.cpp date_common.h date_common.cpp gregorian.h gregorian.cpp julian.h julian.cpp kattistime.h kattistime.cpp 
 lab23:
-	g++ date.h date.cpp date_common.h date_common.cpp gregorian.h gregorian.cpp julian.h julian.cpp kattistime.h kattistime.cpp cprog09lab23.cpp
+	g++ cprog09lab23.cpp date.h date.cpp date_common.h date_common.cpp gregorian.h gregorian.cpp julian.h julian.cpp kattistime.h kattistime.cpp calendar.h 
 
 run:
 	./a.out
