@@ -106,9 +106,6 @@ namespace lab2 {
                     return true;
                 }
 
-
-
-
                 /**
                  * Use the current date
                  */
@@ -116,31 +113,16 @@ namespace lab2 {
                     return remove_event(event, date);
                 }
 
-                bool remove_event(std::string event, int d) {
-                    try {
-                        return remove_event(event, T(date.year(), date.month(), d));
-                    }
-                    catch (std::out_of_range &e ) {
-                        return false;
-                    }
-                }
-
-                bool remove_event(std::string event, int d, int m) {
-                    try {
-                        return remove_event(event, T(date.year(), m, d));
-                    }
-                    catch (std::out_of_range &e ) {
-                        return false;
-                    }
-                }
-
                 /**
                  * Same as add_event
                  * If unable to remove, return false
                  */
-                bool remove_event(std::string event, int d, int m, int y) {
+                bool remove_event(std::string event, int d, int m = 0, int y = 0) {
+                    if (m == 0) m = date.month();
+                    if (y == 0) y = date.year();
+
                     try {
-                        return remove_event(event, T(y,m,d));
+                        return remove_event(event, T(y, m, d));
                     }
                     catch (std::out_of_range &e ) {
                         return false;
@@ -189,7 +171,9 @@ namespace lab2 {
             typename std::multimap<T, std::string> cal = c.cal;
 
             for (it = cal.begin(); it != cal.end(); it++) {
-                std::cout << it->first << " : " << it->second << std::endl;
+                if (it->first > c.date) {
+                    std::cout << it->first << " : " << it->second << std::endl;
+                }
             }
         }
 
