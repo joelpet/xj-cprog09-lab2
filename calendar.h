@@ -42,7 +42,7 @@ namespace lab2 {
                 /**
                  * @return false if the date is invalid
                  */
-                bool set_date(int y, int m, int d) {
+                bool set_date(int d, int m, int y) {
                     try {
                         date = T(y,m,d);
                     }
@@ -68,7 +68,7 @@ namespace lab2 {
                  * if event already exists on the date, return false, nothing
                  * should be added
                  */
-                bool add_event(std::string event, int y, int m, int d) {
+                bool add_event(std::string event, int d, int m, int y) {
                     try {
                         return add_event(event, T(y,m,d));
                     }
@@ -108,7 +108,7 @@ namespace lab2 {
                  * Same as add_event
                  * If unable to remove, return false
                  */
-                bool remove_event(std::string event, int y, int m, int d) {
+                bool remove_event(std::string event, int d, int m, int y) {
                     try {
                         return remove_event(event, T(y,m,d));
                     }
@@ -129,20 +129,6 @@ namespace lab2 {
                         }
                     }
                 }
-
-// 
-                // template <class Q>
-                // Calendar<T> & operator=(const Calendar<Q> & d) {
-                    // if (this == &d) {
-                        // return *this;
-                    // }
-// 
-                    // this->date = d.date;
-                    // this->cal = d.cal;
-// 
-                    // return *this;
-                // }
-
 
         };
     /**
