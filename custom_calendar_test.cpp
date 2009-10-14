@@ -76,6 +76,11 @@ int main() {
     Calendar<Gregorian> g1;
     assert(g1.add_event("nhpsCSY", 14, 9, 2100) == true);
 
+    // remove_event
+
+    g1.set_date(2100, 2, 6);
+    g1.add_event("JXLkblP",  22, 9);
+    assert(g1.remove_event("JXLkblP", 22, 9, 2100) == true);
 
     std::cout << "Custom tests successfully run!" << std::endl;
 

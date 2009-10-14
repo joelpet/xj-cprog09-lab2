@@ -27,12 +27,8 @@ namespace lab2 {
                 template <class Q>
                     Calendar(const Calendar<Q> & c) {
                         this->date = c.date;
-
                         typename std::multimap<Q,std::string>::const_iterator it;
-                        // std::pair<typename std::multimap<T, std::string>::iterator, typename std::multimap<T, std::string>::iterator> ret;
-
-
-
+                        
                         for (it = c.cal.begin(); it != c.cal.end(); ++it) {
                             cal.insert(std::pair<T, std::string>(T(it->first), it->second));
                         }
@@ -59,8 +55,12 @@ namespace lab2 {
                     return add_event(str, date);
                 }
 
-                bool add_event(std::string str, int a, int b = 5) {
-                    return add_event(str);
+                bool add_event(std::string event, int d) {
+                    return add_event(event, T(date.year(), date.month(), d));
+                }
+
+                bool add_event(std::string event, int d, int m) {
+                    return add_event(event, T(date.year(), m, d));
                 }
 
                 /**
@@ -104,8 +104,12 @@ namespace lab2 {
                     return remove_event(event, date);
                 }
 
-                bool remove_event(std::string event, int a, int b = 5) {
-                    return remove_event(event);
+                bool remove_event(std::string event, int d) {
+                    return remove_event(event, T(date.year(), date.month(), d));
+                }
+
+                bool remove_event(std::string event, int d, int m) {
+                    return remove_event(event, T(date.year(), m, d));
                 }
 
                 /**
