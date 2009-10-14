@@ -28,7 +28,7 @@ namespace lab2 {
                     Calendar(const Calendar<Q> & c) {
                         this->date = c.date;
                         typename std::multimap<Q,std::string>::const_iterator it;
-                        
+
                         for (it = c.cal.begin(); it != c.cal.end(); ++it) {
                             cal.insert(std::pair<T, std::string>(T(it->first), it->second));
                         }
@@ -56,11 +56,23 @@ namespace lab2 {
                 }
 
                 bool add_event(std::string event, int d) {
-                    return add_event(event, T(date.year(), date.month(), d));
+                    try {
+                        return add_event(event, T(date.year(), date.month(), d));
+                    }
+                    catch (std::out_of_range & e) {
+                        return false;
+                    }
+                    return true;
                 }
 
                 bool add_event(std::string event, int d, int m) {
-                    return add_event(event, T(date.year(), m, d));
+                    try {
+                        return add_event(event, T(date.year(), m, d));
+                    }
+                    catch (std::out_of_range & e) {
+                        return false;
+                    }
+                    return true;
                 }
 
                 /**
@@ -105,11 +117,21 @@ namespace lab2 {
                 }
 
                 bool remove_event(std::string event, int d) {
-                    return remove_event(event, T(date.year(), date.month(), d));
+                    try {
+                        return remove_event(event, T(date.year(), date.month(), d));
+                    }
+                    catch (std::out_of_range &e ) {
+                        return false;
+                    }
                 }
 
                 bool remove_event(std::string event, int d, int m) {
-                    return remove_event(event, T(date.year(), m, d));
+                    try {
+                        return remove_event(event, T(date.year(), m, d));
+                    }
+                    catch (std::out_of_range &e ) {
+                        return false;
+                    }
                 }
 
                 /**
