@@ -42,7 +42,7 @@ namespace lab2 {
                 /**
                  * @return false if the date is invalid
                  */
-                bool set_date(int d, int m, int y) {
+                bool set_date(int y, int m, int d) {
                     try {
                         date = T(y,m,d);
                     }
@@ -73,6 +73,7 @@ namespace lab2 {
                         return add_event(event, T(y,m,d));
                     }
                     catch (std::out_of_range &e) {
+                        std::cerr << "out of range" << std::endl;
                         return false;
                     }
                 }
@@ -83,11 +84,14 @@ namespace lab2 {
 
                     ret = cal.equal_range(date);
                     for (it = ret.first; it != ret.second; ++it) {
-                        if (event == (*it).second)
+                        if (event == (*it).second) {
+                            std::cerr << "already exists" << std::endl;
                             return false;
+                        }
                     }
                     // We didnt find it
                     cal.insert(std::pair<T, std::string>(date, event));
+                    return true;
                 }
 
 

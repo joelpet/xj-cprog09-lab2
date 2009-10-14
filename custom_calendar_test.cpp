@@ -15,8 +15,6 @@ int main() {
     set_k_time(tp);
 
 
-    Calendar<Gregorian> g1;
-    g1.add_event("nhpsCSY", 14, 9, 2100);
 
     std::cout << "----------------------------------------" << std::endl;
     Calendar<Gregorian> cal;
@@ -72,6 +70,11 @@ int main() {
     // operator+=
 
     // operator-=
+
+    // add_event
+
+    Calendar<Gregorian> g1;
+    assert(g1.add_event("nhpsCSY", 14, 9, 2100) == true);
 
 
     std::cout << "Custom tests successfully run!" << std::endl;
