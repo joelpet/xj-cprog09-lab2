@@ -106,38 +106,15 @@ namespace lab2 {
                     return true;
                 }
 
-                bool remove_event(const std::string event) {
-                    try {
-                        return remove_event(event, T(date.year(), date.month(), date.day()));
-                    }
-                    catch (std::out_of_range &e ) {
-                        return false;
-                    }
-                }
-
-                bool remove_event(const std::string event, int d) {
-                    try {
-                        return remove_event(event, T(date.year(), date.month(), d));
-                    }
-                    catch (std::out_of_range &e ) {
-                        return false;
-                    }
-                }
-
-                bool remove_event(const std::string event, int d, int m) {
-                    try {
-                        return remove_event(event, T(date.year(), m, d));
-                    }
-                    catch (std::out_of_range &e ) {
-                        return false;
-                    }
-                }
-
                 /**
                  * Same as add_event
                  * If unable to remove, return false
                  */
-                bool remove_event(const std::string event, int d, int m, int y) {
+                bool remove_event(std::string event, int d = -17, int m = -17, int y = -17) {
+                    if (d == -17) d = date.day();
+                    if (m == -17) m = date.month();
+                    if (y == -17) y = date.year();
+
                     try {
                         return remove_event(event, T(y, m, d));
                     }
@@ -145,6 +122,7 @@ namespace lab2 {
                         return false;
                     }
                 }
+
 
                 bool remove_event(const std::string event, T date) {
                     typename std::multimap<T,std::string>::iterator it;
