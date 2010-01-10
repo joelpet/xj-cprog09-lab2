@@ -10,6 +10,11 @@ int main() {
 
     std::cout << "Starting custom tests" << std::endl;
 
+    // set up kattistime
+    time_t tp;
+    time(&tp);    
+    set_k_time(tp);
+
     std::cout << "----------------------------------------" << std::endl;
     Calendar<Gregorian> cal;
     cal.set_date(2000, 12, 2);
@@ -26,6 +31,12 @@ int main() {
     cal.remove_event("Basketträning", 4);
     std::cout << cal;   // OBS! Vårdagjämning och första advent är
                         // före nuvarande datum och skrivs inte ut
+    std::cout << "----------------------------------------" << std::endl;
+    cal.set_format(Calendar<Gregorian>::cal);
+    std::cout << cal;
+    std::cout << "----------------------------------------" << std::endl;
+    cal.set_format(Calendar<Gregorian>::iCal);
+    std::cout << cal;
     std::cout << "----------------------------------------" << std::endl;
     cal.remove_event("Vårdagjämning", 20, 3, 2000);
     cal.remove_event("Kalle Anka hälsar god jul", 24, 12, 2000);

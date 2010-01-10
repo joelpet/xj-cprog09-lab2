@@ -1,4 +1,4 @@
-all: clean lab23
+all: clean custom_calendar
 
 clean:
 	clear
@@ -26,7 +26,7 @@ lab22c:
 lab23:
 	g++ cprog09lab23.cpp date.h date.cpp date_common.h date_common.cpp gregorian.h gregorian.cpp julian.h julian.cpp kattistime.h kattistime.cpp calendar.h 
 
-run:
+run: all
 	./a.out
 
 submit22a: clean lab22a

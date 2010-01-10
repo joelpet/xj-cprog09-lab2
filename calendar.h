@@ -12,12 +12,16 @@ namespace lab2 {
         class Calendar {
 
             public:
-                std::multimap<T, std::string> cal;
+                enum format { list, cal, iCal };
+            // private: 
+                format current_format;
+            // public:
+                std::multimap<T, std::string> calendar;
                 T date;
                 /**
                  * Should be set to the current day
                  */
-                Calendar() {
+                Calendar() : current_format(list) {
                     date = T();
                 }
 
@@ -25,12 +29,12 @@ namespace lab2 {
                  * Should work no matter the type of Date
                  */
                 template <class Q>
-                    Calendar(const Calendar<Q> & c) {
+                    Calendar(const Calendar<Q> & c) : current_format(list) {
                         this->date = c.date;
                         typename std::multimap<Q,std::string>::const_iterator it;
 
-                        for (it = c.cal.begin(); it != c.cal.end(); ++it) {
-                            cal.insert(std::pair<T, std::string>(T(it->first), it->second));
+                        for (it = c.calendar.begin(); it != c.calendar.end(); ++it) {
+                            calendar.insert(std::pair<T, std::string>(T(it->first), it->second));
                         }
 
                     }
@@ -94,7 +98,7 @@ namespace lab2 {
                     typename std::multimap<T,std::string>::iterator it;
                     std::pair<typename std::multimap<T, std::string>::iterator, typename std::multimap<T, std::string>::iterator> ret;
 
-                    ret = cal.equal_range(date);
+                    ret = calendar.equal_range(date);
                     for (it = ret.first; it != ret.second; ++it) {
                         if (event == (*it).second) {
                             std::cerr << "already exists" << std::endl;
@@ -102,7 +106,7 @@ namespace lab2 {
                         }
                     }
                     // We didnt find it
-                    cal.insert(std::pair<T, std::string>(date, event));
+                    calendar.insert(std::pair<T, std::string>(date, event));
                     return true;
                 }
 
@@ -136,15 +140,23 @@ namespace lab2 {
                     typename std::multimap<T,std::string>::iterator it;
                     std::pair<typename std::multimap<T, std::string>::iterator, typename std::multimap<T, std::string>::iterator> ret;
 
-                    ret = cal.equal_range(date);
+                    ret = calendar.equal_range(date);
                     for (it = ret.first; it != ret.second; ++it) {
                         if (event == it->second) {
-                            cal.erase(it);
+                            calendar.erase(it);
                             return true;
                         }
                     }
                     return false;
                 }
+
+                void set_format(format f) {
+                    current_format = f;
+                }
+
+                format get_format() {
+                    return current_format;
+                }   
 
         };
     /**
@@ -172,12 +184,76 @@ namespace lab2 {
     template <typename T>
         std::ostream & operator<<(std::ostream & os, const Calendar<T> & c) {
             typename std::multimap<T, std::string>::const_iterator it;
-            typename std::multimap<T, std::string> cal = c.cal;
+            typename std::multimap<T, std::string> calendar = c.calendar;
 
-            for (it = cal.begin(); it != cal.end(); it++) {
-                if (it->first > c.date) {
-                    std::cout << it->first << " : " << it->second << std::endl;
+            if (c.current_format == Calendar<T>::list) {
+
+                for (it = calendar.begin(); it != calendar.end(); it++) {
+                    if (it->first > c.date) {
+                        std::cout << it->first << " : " << it->second << std::endl;
+                    }
                 }
+            }
+            else if (c.current_format == Calendar<T>::cal) {
+                T first_day(c.date.year(), c.date.month(), 1); // first day this month
+                T today(first_day);
+                
+                std::cout << "      " << first_day.month_name() << " " << first_day.year()<< std::endl;
+                std::cout << "må  ti  on  to  fr  lö  sö" << std::endl;
+
+                for (int i = 0; i < first_day.week_day(); i++) {
+                    std::cout << "    ";
+                }
+
+                it = calendar.begin();
+                while (it->first <= c.date)
+                    ++it;
+
+                for (int i = 1; i <= first_day.days_this_month(); ++i) {
+                    std::string append;
+                    if (i < 10)
+                        append.resize(1, ' ');
+
+                    std::cout << append << i;
+                    if (it->first == today) {
+                        std::cout << "* ";
+                        it++;
+                    }
+                    else {
+                        std::cout << "  ";
+                    }
+                    if (today.week_day() == 6)
+                        std::cout << std::endl;
+                    ++today;
+                }
+
+                std::cout << std::endl << std::endl;;
+
+
+                for (it = calendar.begin(); it != calendar.end(); it++) {
+                    if (it->first > c.date) {
+                        std::cout << " "<< it->first << " : " << it->second << std::endl;
+                    }
+                }
+            }
+            else if (c.current_format == Calendar<T>::iCal) {
+                std::cout << "BEGIN:VCALENDAR" << std::endl;
+                std::cout << "VERSION:2.0" << std::endl;
+                std::cout << "PRODID: lolbollarna :)" << std::endl;
+                for (it = calendar.begin(); it != calendar.end(); it++) {
+                    if (it->first > c.date) {
+                        std::cout << "BEGIN:VEVENT" << std::endl;
+                        std::cout << "DTSTART:" << it->first.year() << it->first.month() << it->first.day();
+                        std::cout << "T080000" << std::endl;
+                        std::cout << "DTEND:" << it->first.year() << it->first.month() << it->first.day();
+                        std::cout << "T090000" << std::endl;
+
+                        // std::cout << it->first << " : " << it->second << std::endl;
+                        std::cout << "SUMMARY:" << it->second << std::endl;
+                        std::cout << "END:VEVENT" << std::endl;
+                    }
+                }
+                std::cout << "END:VCALENDAR" << std::endl;
             }
         }
 
