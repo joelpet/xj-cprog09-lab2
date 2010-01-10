@@ -232,7 +232,7 @@ namespace lab2 {
 
                 for (it = calendar.begin(); it != calendar.end(); it++) {
                     if (it->first > c.date) {
-                        std::cout << " "<< it->first << " : " << it->second << std::endl;
+                        std::cout << " "<< it->first << ": " << it->second << std::endl;
                     }
                 }
             }
@@ -243,9 +243,25 @@ namespace lab2 {
                 for (it = calendar.begin(); it != calendar.end(); it++) {
                     if (it->first > c.date) {
                         std::cout << "BEGIN:VEVENT" << std::endl;
-                        std::cout << "DTSTART:" << it->first.year() << it->first.month() << it->first.day();
+                        std::cout << "DTSTART:" << it->first.year();
+                        if (it->first.month() < 10)
+                            std::cout << "0" << it->first.month();
+                        else
+                            std::cout << it->first.month();
+                        if (it->first.day() < 10)
+                            std::cout << "0" << it->first.day();
+                        else
+                            std::cout << it->first.day();
                         std::cout << "T080000" << std::endl;
-                        std::cout << "DTEND:" << it->first.year() << it->first.month() << it->first.day();
+                        std::cout << "DTEND:" << it->first.year();
+                        if (it->first.month() < 10)
+                            std::cout << "0" << it->first.month();
+                        else
+                            std::cout << it->first.month();
+                        if (it->first.day() < 10)
+                            std::cout << "0" << it->first.day();
+                        else
+                            std::cout << it->first.day();
                         std::cout << "T090000" << std::endl;
 
                         // std::cout << it->first << " : " << it->second << std::endl;
