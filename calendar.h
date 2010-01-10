@@ -106,26 +106,23 @@ namespace lab2 {
                     return true;
                 }
 
-                bool remove_event(const std::string event) {
-                    int y = date.year(), m = date.month(), d = date.day();
-                    return remove_event(event, d, m, y);
+                bool remove_event(std::string event) {
+                    return remove_event(event, date);
                 }
 
-                bool remove_event(const std::string event, int d) {
-                    int y = date.year(), m = date.month();
-                    return remove_event(event, d, m, y);
+                bool remove_event(std::string event, int d) {
+                    return remove_event(event, d, date.month());
                 }
 
-                bool remove_event(const std::string event, int d, int m) {
-                    int y = date.year();
-                    return remove_event(event, d, m, y);
+                bool remove_event(std::string event, int d, int m) {
+                    return remove_event(event, d, m, date.year());
                 }
 
                 /**
                  * Same as add_event
                  * If unable to remove, return false
                  */
-                bool remove_event(const std::string event, int d, int m, int y) {
+                bool remove_event(std::string event, int d, int m, int y) {
                     try {
                         return remove_event(event, T(y, m, d));
                     }
@@ -146,6 +143,7 @@ namespace lab2 {
                             return true;
                         }
                     }
+                    return false;
                 }
 
         };
