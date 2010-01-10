@@ -119,7 +119,7 @@ int main() {
     assert(g3.year() == 1858);
     assert(g4.year() == 1858);
     assert(g5.year() == 1858);
-    assert(gnow.year() == 2009);
+    assert(gnow.year() == 2010);
 
     assert(j1.year() == 1899);
     assert(j2.year() == 1900);
