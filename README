@@ -45,3 +45,5 @@ direkt argument emot, annat än att det tar några sekunder att skriva koden.
 ---
 
 
+En dålig lösning är att ha datum och händelse i två parallella vektorer 
+med gemensamt index. Varför? Förklara dig vid redovisningstillfället.
